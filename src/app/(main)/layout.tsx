@@ -4,12 +4,10 @@ import { ReactNode } from 'react';
 
 export default function MainLayout({ children }: { children: ReactNode }) {
 	return (
-		<div>
+		<div className="flex min-h-screen flex-col">
 			<Header />
 
-			<main className="mx-auto mb-0 mt-8 h-screen w-full max-w-screen-2xl px-20 py-0">
-				{children}
-			</main>
+			<main className="flex-grow">{children}</main>
 
 			<Footer />
 		</div>
