@@ -23,9 +23,9 @@ export function NavItem({ title, href, ...rest }: INavItemProps) {
 			href={href}
 			data-state={isActive}
 			className={twMerge([
-				'flex items-start gap-4 rounded-none border-b border-transparent p-2 text-slate-500',
+				'flex items-start gap-4 rounded-none border-b-2 border-transparent p-2 text-slate-500',
 				'hover:text-primary',
-				'data-[state=true]:text-primary data-[state=true]:border-primary data-[state=true]:font-medium',
+				'data-[state=true]:border-primary data-[state=true]:font-medium data-[state=true]:text-primary data-[state=true]:drop-shadow',
 			])}
 			{...rest}
 		>

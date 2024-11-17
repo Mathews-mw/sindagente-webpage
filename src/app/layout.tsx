@@ -1,4 +1,5 @@
 import './globals.css';
+import '@/lib/dayjs';
 
 import type { Metadata } from 'next';
 import { twMerge } from 'tailwind-merge';
