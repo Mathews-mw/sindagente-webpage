@@ -1,6 +1,4 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
 
 import {
 	Card,
@@ -13,9 +11,6 @@ import {
 
 import { Newspaper } from 'lucide-react';
 import Link from 'next/link';
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
 
 interface INewsCardProps {
 	title: string;
