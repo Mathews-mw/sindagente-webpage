@@ -7,17 +7,13 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
+import { PageTitle } from '@/components/page-title';
 
 export default function ContatoPage() {
 	return (
 		<div>
 			<Section className="space-y-8">
-				<div className="flex gap-2">
-					<div className="inline-block border-b-[3px] border-primary">
-						<h1 className="text-2xl font-bold text-primary brightness-50">Contatos</h1>
-					</div>
-					<h1 className="text-2xl font-bold text-primary brightness-50">e Endereço</h1>
-				</div>
+				<PageTitle title="Contatos e Endereço" />
 			</Section>
 
 			<div className="relative mt-8 flex h-[360px] w-full bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">

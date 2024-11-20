@@ -1,31 +1,30 @@
 import { Section } from '@/components/section';
 import { NewsCard } from './news-card';
+import { PageTitle } from '@/components/page-title';
+import { PageSubTitle } from '@/components/page-subtitle';
+import { PageMargin } from '@/components/page-margin';
 
 export default function ComunicaoPage() {
 	return (
-		<div>
-			<Section className="space-y-8">
-				<div className="flex gap-2">
-					<div className="inline-block border-b-[3px] border-primary">
-						<h1 className="text-2xl font-bold text-primary brightness-50">Comunicação</h1>
-					</div>
-					<h1 className="text-2xl font-bold text-primary brightness-50">e Notícias</h1>
-				</div>
-			</Section>
+		<Section className="my-8 space-y-8">
+			<PageTitle title="Comunicação e Notícias" />
 
-			<Section className="my-8">
+			<PageMargin className="space-y-8">
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat fugit placeat
 					rem alias maiores voluptate. Quasi optio veritatis maxime commodi voluptate neque,
 					nisi delectus qui iure itaque necessitatibus odio.
 				</p>
-			</Section>
 
-			<Section className="my-8 space-y-8">
-				<div className="flex items-center gap-2">
-					<span className="flex h-6 w-1.5 bg-primary" />
-					<h2 className="text-2xl font-semibold text-primary brightness-50">Notícias</h2>
-				</div>
+				<PageSubTitle title="Eventos" />
+
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat fugit placeat
+					rem alias maiores voluptate. Quasi optio veritatis maxime commodi voluptate neque,
+					nisi delectus qui iure itaque necessitatibus odio.
+				</p>
+
+				<PageSubTitle title="Notícias" />
 
 				<div
 					style={{
@@ -91,7 +90,7 @@ export default function ComunicaoPage() {
 						date={new Date('2024-09-12').toISOString()}
 					/>
 				</div>
-			</Section>
-		</div>
+			</PageMargin>
+		</Section>
 	);
 }

@@ -1,13 +1,18 @@
 'use client';
 
-import { Section } from '@/components/section';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { FileType } from '@prisma/client';
 import { useState } from 'react';
+import { FileType } from '@prisma/client';
+import { Section } from '@/components/section';
+import { useQuery } from '@tanstack/react-query';
+
+import { PageTitle } from '@/components/page-title';
+import { PageMargin } from '@/components/page-margin';
 import { FederalTabContent } from './federal-tab-content';
 import { EstadualTabContent } from './estadual-tab-content';
+import { MunicipalTabContent } from './mucipal-tab-content';
+import { DiversosTabContent } from './diversos-tab-content';
 import { getAttachments } from '@/app/api/@requests/get-attachments';
-import { useQuery } from '@tanstack/react-query';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function LegislacaoPage() {
 	const [tabSelection, setTabSelection] = useState<FileType>(FileType.FEDERAL);
@@ -25,14 +30,19 @@ export default function LegislacaoPage() {
 		? attachments.attachments.filter((attachment) => attachment.type === 'ESTADUAL')
 		: [];
 
-	return (
-		<div>
-			<Section className="space-y-8">
-				<div className="flex items-center gap-2">
-					<span className="flex h-6 w-1.5 bg-primary" />
-					<h1 className="text-2xl font-semibold text-primary brightness-50">Legislações</h1>
-				</div>
+	const municipalAttachments = attachments
+		? attachments.attachments.filter((attachment) => attachment.type === 'MUNICIPAL')
+		: [];
 
+	const diversosAttachments = attachments
+		? attachments.attachments.filter((attachment) => attachment.type === 'DIVERSOS')
+		: [];
+
+	return (
+		<Section className="my-8 space-y-8">
+			<PageTitle title="Legislações" />
+
+			<PageMargin className="space-y-8">
 				<div>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad nemo explicabo
@@ -57,11 +67,17 @@ export default function LegislacaoPage() {
 							<FederalTabContent attachments={federalAttachments} isFetching={isFetching} />
 						</TabsContent>
 						<TabsContent value={FileType.ESTADUAL}>
-							<EstadualTabContent enabled={tabSelection === FileType.ESTADUAL} />
+							<EstadualTabContent attachments={estadualAttachments} isFetching={isFetching} />
+						</TabsContent>
+						<TabsContent value={FileType.MUNICIPAL}>
+							<MunicipalTabContent attachments={municipalAttachments} isFetching={isFetching} />
+						</TabsContent>
+						<TabsContent value={FileType.DIVERSOS}>
+							<DiversosTabContent attachments={diversosAttachments} isFetching={isFetching} />
 						</TabsContent>
 					</Tabs>
 				</div>
-			</Section>
-		</div>
+			</PageMargin>
+		</Section>
 	);
 }

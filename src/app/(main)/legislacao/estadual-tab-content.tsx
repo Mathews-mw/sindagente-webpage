@@ -1,24 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-
+import { Attachment } from '@prisma/client';
 import { AttachmentTable } from './attachments-table';
-import { getAttachments } from '@/app/api/@requests/get-attachments';
 
 interface IProps {
-	enabled: boolean;
+	isFetching: boolean;
+	attachments: Attachment[];
 }
 
-export function EstadualTabContent({ enabled }: IProps) {
-	const { data: attachments, isFetching } = useQuery({
-		queryKey: ['attachments'],
-		queryFn: async () => getAttachments({ fileType: 'ESTADUAL' }),
-		enabled,
-	});
-
+export function EstadualTabContent({ attachments, isFetching }: IProps) {
 	return (
 		<div>
-			{attachments && (
-				<AttachmentTable attachments={attachments.attachments} isFetching={isFetching} />
-			)}
+			<AttachmentTable attachments={attachments} isFetching={isFetching} />
 		</div>
 	);
 }
