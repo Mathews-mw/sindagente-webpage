@@ -1,46 +1,18 @@
-'use client';
-
-import { Button } from '@/components/ui/button';
-import { api } from '@/lib/axios';
-import { useState } from 'react';
+import { Section } from '@/components/section';
 
 export default function AdminPage() {
-	const [file, setFile] = useState<FileList | null>(null);
-
-	console.log('file: ', file);
-
-	async function handleUploadFile() {
-		const config = {
-			headers: { 'content-type': 'multipart/form-data' },
-			onUploadProgress: (event: any) => {
-				console.log(`Current progress:`, Math.round((event.loaded * 100) / event.total));
-			},
-		};
-
-		const formData = new FormData();
-
-		if (file) {
-			formData.append('file', file[0]);
-		}
-
-		try {
-			const result = await api.post('/attachments/legislation/upload', formData, config);
-
-			console.log('result: ', result.data);
-		} catch (error) {
-			console.log('Erro ao tentar fazer upload do arquivo: ', error);
-		}
-	}
-
 	return (
-		<div>
-			<h1>Admin</h1>
-
-			<div className="flex flex-col">
-				<input type="file" name="file" onChange={(e) => setFile(e.target.files)} />
-
-				<Button onClick={() => handleUploadFile()}>Upload File</Button>
+		<Section>
+			<div className="flex items-center gap-2">
+				<span className="flex h-6 w-1.5 bg-primary" />
+				<h1 className="text-2xl font-semibold text-primary brightness-50">
+					Seção de Administrador
+				</h1>
 			</div>
-		</div>
+
+			<div className="mt-8">
+				<p>Página para gerenciamento dos recursos do site</p>
+			</div>
+		</Section>
 	);
 }

@@ -1,8 +1,5 @@
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { TableCell, TableRow } from '@/components/ui/table';
-
-import { FileDown, Search, Trash2 } from 'lucide-react';
 
 export function AttachmentsTableRowSkeleton() {
 	return (

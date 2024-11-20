@@ -23,11 +23,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-import { FileUp } from 'lucide-react';
+import { FileUp, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { TagUploadForm } from './tag-upload-form';
 import { toast } from 'sonner';
 import { api } from '@/lib/axios';
+import { errorToasterHandler } from '@/utils/error-toaster-handler';
+import { QueryClient, useQueryClient } from '@tanstack/react-query';
 
 interface IUploadAttachmentDialogProps {
 	isOpen: boolean;
@@ -53,16 +55,17 @@ export function UploadAttachmentDialog({ isOpen, onOpen }: IUploadAttachmentDial
 		handleSubmit,
 		register,
 		reset,
-		watch,
 		formState: { isSubmitting, errors },
 	} = useForm<UploadFormSchemaData>({
 		resolver: zodResolver(uploadFormSchema),
 	});
 
+	const queryClient = useQueryClient();
 	const [parent, enableAnimations] = useAutoAnimate();
 
 	const [tags, setTags] = useState<string[]>([]);
 	const [inputTag, setInputTag] = useState<string>('');
+	const [isLoading, setIsLoading] = useState(false);
 
 	function handleAddTag(tag: string) {
 		if (tag === '') {
@@ -80,6 +83,8 @@ export function UploadAttachmentDialog({ isOpen, onOpen }: IUploadAttachmentDial
 	}
 
 	async function handleUploadFormSubmit(data: UploadFormSchemaData) {
+		setIsLoading(true);
+
 		const config = {
 			headers: { 'content-type': 'multipart/form-data' },
 		};
@@ -97,16 +102,19 @@ export function UploadAttachmentDialog({ isOpen, onOpen }: IUploadAttachmentDial
 		}
 
 		try {
-			const result = await api.post('/attachments/legislation/upload', formData, config);
+			await api.post('/attachments/upload', formData, config);
 
-			console.log('result: ', result.data);
+			await queryClient.invalidateQueries({ queryKey: ['attachments'] });
 
 			reset();
 			setTags([]);
-			toast.success('Arquivo carregado com sucesso');
+			setIsLoading(false);
 			onOpen();
+
+			toast.success('Arquivo carregado com sucesso');
 		} catch (error) {
-			toast.error('Houve algum erro ao tentar fazer upload do arquivo');
+			setIsLoading(false);
+			errorToasterHandler(error, 'Houve algum erro ao tentar fazer upload do arquivo');
 			console.log('Erro ao tentar fazer upload do arquivo: ', error);
 		}
 	}
@@ -116,7 +124,7 @@ export function UploadAttachmentDialog({ isOpen, onOpen }: IUploadAttachmentDial
 			<DialogTrigger asChild>
 				<Button>
 					<FileUp className="h-5 w-5" />
-					Upload novo arquivo
+					Carregar novo arquivo
 				</Button>
 			</DialogTrigger>
 
@@ -201,7 +209,10 @@ export function UploadAttachmentDialog({ isOpen, onOpen }: IUploadAttachmentDial
 						})}
 					</ul>
 
-					<Button type="submit">Salvar</Button>
+					<Button type="submit" disabled={isLoading}>
+						{isLoading && <Loader2 className="h-5 w-5 animate-spin" />}
+						Salvar
+					</Button>
 				</form>
 			</DialogContent>
 		</Dialog>

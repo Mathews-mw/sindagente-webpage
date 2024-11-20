@@ -23,7 +23,7 @@ export default function AttachmentsPage() {
 
 	const { data: attachments, isFetching } = useQuery({
 		queryKey: ['attachments'],
-		queryFn: getAttachments,
+		queryFn: async () => getAttachments({}),
 	});
 
 	return (

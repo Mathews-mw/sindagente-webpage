@@ -1,3 +1,3 @@
 export default {
-	LEGISLACAO_OBJECT_PATH: 'legislacao',
+	OBJECT_FOLDER_PATH: 'arquivos',
 };
