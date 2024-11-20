@@ -4,6 +4,7 @@ import '@/lib/dayjs';
 import type { Metadata } from 'next';
 import { twMerge } from 'tailwind-merge';
 import { Raleway } from 'next/font/google';
+import { TanstackQueryClientProvider } from '@/providers/TanstackQueryClientProvider';
 
 const raleway = Raleway({
 	subsets: ['latin'],
@@ -25,7 +26,7 @@ export default function RootLayout({
 	return (
 		<html lang="pt-BR">
 			<body className={twMerge('min-h-screen bg-background antialiased', raleway.className)}>
-				{children}
+				<TanstackQueryClientProvider>{children}</TanstackQueryClientProvider>
 			</body>
 		</html>
 	);
