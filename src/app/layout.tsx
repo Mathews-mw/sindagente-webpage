@@ -1,6 +1,7 @@
 import './globals.css';
 import '@/lib/dayjs';
 
+import { Toaster } from 'sonner';
 import type { Metadata } from 'next';
 import { twMerge } from 'tailwind-merge';
 import { Raleway } from 'next/font/google';
@@ -26,7 +27,10 @@ export default function RootLayout({
 	return (
 		<html lang="pt-BR">
 			<body className={twMerge('min-h-screen bg-background antialiased', raleway.className)}>
-				<TanstackQueryClientProvider>{children}</TanstackQueryClientProvider>
+				<TanstackQueryClientProvider>
+					{children}
+					<Toaster richColors />
+				</TanstackQueryClientProvider>
 			</body>
 		</html>
 	);

@@ -13,8 +13,14 @@ import { AttachmentsTableRow } from './attachments-table-row';
 import { useQuery } from '@tanstack/react-query';
 import { getAttachments } from '@/app/api/@requests/get-attachments';
 import { AttachmentsTableRowSkeleton } from './attachment-table-row-skeleton';
+import { Button } from '@/components/ui/button';
+import { FileUp } from 'lucide-react';
+import { UploadAttachmentDialog } from './upload-attachment-dialog';
+import { useState } from 'react';
 
 export default function AttachmentsPage() {
+	const [isOpenUploadModal, setIsOpenUploadModal] = useState(false);
+
 	const { data: attachments, isFetching } = useQuery({
 		queryKey: ['attachments'],
 		queryFn: getAttachments,
@@ -28,6 +34,13 @@ export default function AttachmentsPage() {
 					<h1 className="text-2xl font-semibold text-primary brightness-50">
 						Gerenciamento de Arquivos
 					</h1>
+				</div>
+
+				<div className="flex w-full justify-end">
+					<UploadAttachmentDialog
+						isOpen={isOpenUploadModal}
+						onOpen={() => setIsOpenUploadModal(!isOpenUploadModal)}
+					/>
 				</div>
 
 				<div>
