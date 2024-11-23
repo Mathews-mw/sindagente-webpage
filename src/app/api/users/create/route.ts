@@ -11,6 +11,15 @@ const bodySchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
+	if (request.method !== 'POST') {
+		return Response.json(
+			{
+				error: 'Método não permitido',
+			},
+			{ status: 405 }
+		);
+	}
+
 	const data = await request.json();
 
 	const dataParse = bodySchema.safeParse(data);
@@ -37,7 +46,7 @@ export async function POST(request: NextRequest) {
 
 		if (user) {
 			return NextResponse.json(
-				{ message: `Usuário como e-mail "${email} já está cadastrado."` },
+				{ message: `Usuário como e-mail "${email}" já está cadastrado.` },
 				{ status: 400 }
 			);
 		}

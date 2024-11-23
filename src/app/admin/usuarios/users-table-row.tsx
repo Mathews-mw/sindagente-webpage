@@ -15,12 +15,14 @@ import {
 } from '@/components/ui/dialog';
 import { UserRoundCog, UserRoundX } from 'lucide-react';
 import { UserConfigsDialog } from './user-configs-dialog';
+import { DeleteUserDialog } from './delete-user-dialog';
 
 interface IUsersTableRowProps {
 	user: User;
 }
 
 export function UsersTableRow({ user }: IUsersTableRowProps) {
+	const [isDeleteUserDialogOpen, setIsDeleteUserDialogOpen] = useState(false);
 	const [isUserConfigsDialogOpen, setIsUserConfigsDialogOpen] = useState(false);
 
 	return (
@@ -45,9 +47,20 @@ export function UsersTableRow({ user }: IUsersTableRowProps) {
 			<TableCell className="font-semibold">{user.email}</TableCell>
 			<TableCell className="font-semibold">{user.role}</TableCell>
 			<TableCell>
-				<Button variant="destructive" size="xs">
-					<UserRoundX />
-				</Button>
+				<Dialog open={isDeleteUserDialogOpen} onOpenChange={setIsDeleteUserDialogOpen}>
+					<DialogTrigger asChild>
+						<Button variant="destructive" size="xs">
+							<UserRoundX className="h-3 w-3" />
+							<span className="sr-only">deletar usuário</span>
+						</Button>
+					</DialogTrigger>
+
+					<DeleteUserDialog
+						user={user}
+						isOpen={isUserConfigsDialogOpen}
+						onOpen={() => setIsDeleteUserDialogOpen(!isDeleteUserDialogOpen)}
+					/>
+				</Dialog>
 			</TableCell>
 		</TableRow>
 	);

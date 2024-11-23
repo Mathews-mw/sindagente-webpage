@@ -1,8 +1,7 @@
-import { PageTitle } from '@/components/page-title';
-import { Section } from '@/components/section';
 import { UsersTable } from './users-table';
-import { Button } from '@/components/ui/button';
-import { UserRoundPlus } from 'lucide-react';
+import { Section } from '@/components/section';
+import { PageTitle } from '@/components/page-title';
+import { RegisterUserDialog } from './register-user-dialog';
 
 export default function UsersPage() {
 	return (
@@ -10,10 +9,7 @@ export default function UsersPage() {
 			<PageTitle title="Gerenciamento de Usuários" />
 
 			<div className="flex justify-end">
-				<Button>
-					<UserRoundPlus />
-					Cadastrar Usuário
-				</Button>
+				<RegisterUserDialog />
 			</div>
 
 			<UsersTable />
