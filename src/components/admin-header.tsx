@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 import { NavLink } from './nav-link/nav-link';
 import { AdminNavLink } from './admin-nav-link/admin-nav-link';
+import { Separator } from './ui/separator';
+import { AccountMenu } from './account-menu';
 
 export function AdminHeader() {
 	return (
@@ -31,7 +33,13 @@ export function AdminHeader() {
 						<Image src="/logo.jpg" alt="Logo" width={60} height={60} />
 					</div>
 
-					<AdminNavLink />
+					<div className="flex items-center gap-8">
+						<AdminNavLink />
+
+						<Separator orientation="vertical" />
+
+						<AccountMenu />
+					</div>
 				</div>
 			</div>
 		</header>

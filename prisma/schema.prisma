@@ -13,6 +13,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  ADMIN
+  MODERADOR
+}
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
+  password String
+  role     UserRole @default(MODERADOR)
+
+  session Session?
+
+  @@map("users")
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  userId     String   @unique @map("user_id")
+  token      String
+  registerAt DateTime @map("register_at")
+
+  user User @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+
+  @@map("sessions")
+}
+
 enum FileType {
   GENERIC
   FEDERAL

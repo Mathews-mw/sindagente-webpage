@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { twMerge } from 'tailwind-merge';
 import { Raleway } from 'next/font/google';
 import { TanstackQueryClientProvider } from '@/providers/TanstackQueryClientProvider';
+import { NextAuthSessionProvider } from '@/providers/SessionProvider';
 
 const raleway = Raleway({
 	subsets: ['latin'],
@@ -27,10 +28,11 @@ export default function RootLayout({
 	return (
 		<html lang="pt-BR">
 			<body className={twMerge('min-h-screen bg-background antialiased', raleway.className)}>
-				<TanstackQueryClientProvider>
-					{children}
-					<Toaster richColors />
-				</TanstackQueryClientProvider>
+				<NextAuthSessionProvider>
+					<TanstackQueryClientProvider>{children}</TanstackQueryClientProvider>
+				</NextAuthSessionProvider>
+
+				<Toaster richColors />
 			</body>
 		</html>
 	);
