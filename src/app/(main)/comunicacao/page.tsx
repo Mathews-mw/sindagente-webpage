@@ -1,10 +1,36 @@
+'use client';
+
+import { PostsList } from './posts-list';
 import { Section } from '@/components/section';
-import { NewsCard } from './news-card';
 import { PageTitle } from '@/components/page-title';
-import { PageSubTitle } from '@/components/page-subtitle';
 import { PageMargin } from '@/components/page-margin';
+import { PageSubTitle } from '@/components/page-subtitle';
+import { AnnouncementList } from './components/announcement/announcement-list';
+import { InfiniteData, QueryKey, useInfiniteQuery } from '@tanstack/react-query';
+import {
+	listingPostsCursorMode,
+	IPostsCursorModeResponse,
+} from '@/app/api/@requests/posts/listing-posts-cursor-mode';
 
 export default function ComunicaoPage() {
+	const { data, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage } = useInfiniteQuery<
+		IPostsCursorModeResponse,
+		Error,
+		InfiniteData<IPostsCursorModeResponse>,
+		QueryKey,
+		string | undefined
+	>({
+		queryKey: ['posts', 'cursor-mode'],
+		queryFn: async ({ pageParam }) =>
+			await listingPostsCursorMode({
+				limit: 8,
+				cursor: pageParam,
+			}),
+		initialPageParam: undefined,
+		getPreviousPageParam: (firstPage) => firstPage.previousCursor,
+		getNextPageParam: (lastPage) => lastPage.nextCursor,
+	});
+
 	return (
 		<Section className="my-8 space-y-8">
 			<PageTitle title="Comunicação e Notícias" />
@@ -16,79 +42,24 @@ export default function ComunicaoPage() {
 					nisi delectus qui iure itaque necessitatibus odio.
 				</p>
 
-				<PageSubTitle title="Eventos" />
+				<PageSubTitle title="Comunicados" />
 
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat fugit placeat
-					rem alias maiores voluptate. Quasi optio veritatis maxime commodi voluptate neque,
-					nisi delectus qui iure itaque necessitatibus odio.
-				</p>
+				<div className="space-y-4">
+					<AnnouncementList />
+				</div>
 
 				<PageSubTitle title="Notícias" />
 
-				<div
-					style={{
-						display: 'grid',
-						columnGap: '18px',
-						rowGap: '18px',
-						gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-					}}
-				>
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-11-15').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-11-10').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-11-08').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-10-20').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-10-18').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-10-17').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-10-15').toISOString()}
-					/>
-
-					<NewsCard
-						title="Lorem Ipsum"
-						subTitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa"
-						preview="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad deserunt magni possimus esse ipsa, ea perferendis minima, iure labore deleniti quaerat soluta omnis enim similique explicabo nihil quae mollitia debitis."
-						date={new Date('2024-09-12').toISOString()}
-					/>
+				<div>
+					{data && (
+						<PostsList
+							posts={data.pages}
+							isFetching={isFetching}
+							isFetchingNextPage={isFetchingNextPage}
+							fetchNextPage={fetchNextPage}
+							hasNextPage={hasNextPage}
+						/>
+					)}
 				</div>
 			</PageMargin>
 		</Section>

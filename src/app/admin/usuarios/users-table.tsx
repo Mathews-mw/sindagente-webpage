@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/table';
 import { UsersTableRow } from './users-table-row';
 import { useQuery } from '@tanstack/react-query';
-import { listingUsers } from '@/app/api/@requests/listing-users';
+import { listingUsers } from '@/app/api/@requests/users/listing-users';
 
 export function UsersTable() {
 	const { data: usersResponse, isFetching } = useQuery({

@@ -1,5 +1,7 @@
 import { Section } from '@/components/section';
+import { Button } from '@/components/ui/button';
 import { PageTitle } from '@/components/page-title';
+import { PageMargin } from '@/components/page-margin';
 import {
 	Card,
 	CardContent,
@@ -8,9 +10,10 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+
 import { FileCheck, FileX } from 'lucide-react';
-import { PageMargin } from '@/components/page-margin';
+import { AffiliateCard } from './affiliate-card';
+import { DisaffiliateCard } from './disaffiliate-card';
 
 export default function SindicalizePage() {
 	return (
@@ -27,75 +30,15 @@ export default function SindicalizePage() {
 
 					<p>
 						Logo abaixo você encontra os devidos formulários tanto para{' '}
-						<strong>filia-se</strong> quanto para <strong>desfazer</strong> sua filiação ao
+						<strong>filiar-se</strong> quanto para <strong>desfazer</strong> sua filiação ao
 						sindicato.
 					</p>
 				</div>
 
 				<div className="flex flex-wrap justify-evenly gap-4">
-					<Card className="max-w-[520px] bg-primary/10 shadow-sm shadow-primary/50">
-						<CardHeader>
-							<CardTitle>Filiação</CardTitle>
-							<CardDescription>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam a nemo cum
-								impedit distinctio error illum, tempore sequi repellat, ullam molestiae
-								sapiente, nisi nihil quisquam qui magnam? Odio, ullam.
-							</CardDescription>
-						</CardHeader>
-						<CardContent>
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta
-								quisquam modi inventore quasi quod libero veritatis expedita non eos, neque a,
-								nam nulla cumque sit! Debitis, eaque? Pariatur, earum!
-							</p>
+					<AffiliateCard />
 
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta
-								quisquam modi inventore quasi quod libero veritatis expedita non eos, neque a,
-								nam nulla cumque sit! Debitis, eaque? Pariatur, earum!
-							</p>
-						</CardContent>
-						<CardFooter>
-							<div className="flex w-full justify-center">
-								<Button>
-									<FileCheck />
-									Formulário de sindicalização
-								</Button>
-							</div>
-						</CardFooter>
-					</Card>
-
-					<Card className="max-w-[520px] bg-muted">
-						<CardHeader>
-							<CardTitle>Desfiliação</CardTitle>
-							<CardDescription>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam a nemo cum
-								impedit distinctio error illum, tempore sequi repellat, ullam molestiae
-								sapiente, nisi nihil quisquam qui magnam? Odio, ullam.
-							</CardDescription>
-						</CardHeader>
-						<CardContent>
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta
-								quisquam modi inventore quasi quod libero veritatis expedita non eos, neque a,
-								nam nulla cumque sit! Debitis, eaque? Pariatur, earum!
-							</p>
-
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta
-								quisquam modi inventore quasi quod libero veritatis expedita non eos, neque a,
-								nam nulla cumque sit! Debitis, eaque? Pariatur, earum!
-							</p>
-						</CardContent>
-						<CardFooter>
-							<div className="flex w-full justify-center">
-								<Button variant="outline">
-									<FileX />
-									Formulário de desfiliação
-								</Button>
-							</div>
-						</CardFooter>
-					</Card>
+					<DisaffiliateCard />
 				</div>
 			</PageMargin>
 		</Section>

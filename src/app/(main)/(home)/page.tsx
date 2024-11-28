@@ -1,7 +1,9 @@
+import { PageSubTitle } from '@/components/page-subtitle';
 import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { LatestNewsSection } from './latest-news-section';
 
 export default function HomePage() {
 	return (
@@ -28,12 +30,14 @@ export default function HomePage() {
 						<div className="flex h-full max-w-[50%] flex-col justify-between pl-3">
 							<div>
 								<p className="text-justify">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias
-									eaque, numquam provident repellendus hic doloremque quibusdam excepturi at
-									quas? Et nulla vitae quisquam accusamus libero? Repellat animi labore
-									blanditiis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa
-									nihil sint alias non reiciendis! Laborum, saepe delectus ratione sed omnis a
-									odio, eligendi quasi, magni recusandae quaerat neque voluptatum molestias.
+									<strong className="font-semibold">
+										SINDICATO DOS TRABALHADORES EM CONTROLE E COMBATE DE ENDEMIAS NO ESTADO DO
+										AMAZONAS - SINDAGENTE/AM
+									</strong>
+									, é uma organização sindical representativa da categoria profissional estadual
+									e municipal dos Agentes de Combate às Endemias, Servidores Efetivos, Ativos,
+									Aposentados e Pensionistas da Fundação de Vigilância em Saúde - FVS/AM, com
+									sede e foro jurídico na cidade de Manaus/AM.
 								</p>
 							</div>
 
@@ -66,24 +70,38 @@ export default function HomePage() {
 				/>
 			</div>
 
-			<Section className="my-10">
-				<div className="space-y-4">
-					<div className="flex flex-col items-center gap-2">
-						<h2 className="border-b-2 border-primary text-xl font-bold text-primary brightness-50">
-							Lorem ipsum dolor sit amet
-						</h2>
-					</div>
+			<div className="bg-primary/10 py-8">
+				<Section className="my-10">
+					<div className="space-y-4">
+						<div className="flex flex-col items-center gap-2">
+							<h2 className="border-b-2 border-primary text-xl font-bold text-primary brightness-50">
+								Lorem ipsum dolor sit amet
+							</h2>
+						</div>
 
-					<div>
-						<p className="text-center font-semibold text-zinc-700">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ut architecto
-							cum explicabo optio, minima blanditiis impedit veniam nobis repellat non aperiam
-							quo assumenda totam nisi fugiat officiis illum saepe! Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Iure dignissimos quae eos optio suscipit tempora
-							vero voluptas, excepturi quas laudantium culpa nobis expedita corporis. Nulla
-							dignissimos natus perferendis iusto quas.
-						</p>
+						<div>
+							<p className="text-center font-semibold text-zinc-700">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ut architecto
+								cum explicabo optio, minima blanditiis impedit veniam nobis repellat non aperiam
+								quo assumenda totam nisi fugiat officiis illum saepe! Lorem ipsum dolor sit amet
+								consectetur adipisicing elit. Iure dignissimos quae eos optio suscipit tempora
+								vero voluptas, excepturi quas laudantium culpa nobis expedita corporis. Nulla
+								dignissimos natus perferendis iusto quas.
+							</p>
+						</div>
 					</div>
+				</Section>
+			</div>
+
+			<Section className="my-8">
+				<PageSubTitle title="Notícias mais recentes" />
+
+				<LatestNewsSection />
+
+				<div className="flex w-full justify-start">
+					<Button asChild>
+						<Link href="/comunicacao">Mais notícias</Link>
+					</Button>
 				</div>
 			</Section>
 		</div>

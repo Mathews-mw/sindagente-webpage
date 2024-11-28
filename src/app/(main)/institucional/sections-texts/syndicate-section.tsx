@@ -11,7 +11,7 @@ export function SyndicateSection() {
 					alt="about-image"
 					width={3840}
 					height={5760}
-					className="h-[400px] object-cover"
+					className="h-[520px] object-cover"
 				/>
 
 				<div className="space-y-8">
@@ -21,19 +21,43 @@ export function SyndicateSection() {
 
 					<div className="space-y-2">
 						<p className="text-justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias eaque,
-							numquam provident repellendus hic doloremque quibusdam excepturi at quas? Et nulla
-							vitae quisquam accusamus libero? Repellat animi labore blanditiis? Lorem ipsum
-							dolor sit amet, consectetur adipisicing elit. Ipsa nihil sint alias non
-							reiciendis! Laborum, saepe delectus ratione sed omnis a odio, eligendi quasi,
-							magni recusandae quaerat neque voluptatum molestias.
+							Um sindicato é uma organização formada por trabalhadores ou empregadores com o
+							objetivo principal de representar seus interesses coletivos. Ele atua na defesa de
+							direitos, negociação de melhores condições de trabalho, salários e benefícios,
+							além de promover melhorias no ambiente laboral.
 						</p>
 
+						<h4 className="text-lg font-semibold">Papel do sindicato na sociedade:</h4>
+
+						<ol className="ml-6 list-decimal">
+							<li>
+								<strong className="font-semibold">Representação coletiva:</strong> Negocia
+								acordos e convenções coletivas de trabalho em nome dos trabalhadores ou
+								empregadores.
+							</li>
+							<li>
+								<strong className="font-semibold">Defesa de direitos:</strong> Atua na
+								fiscalização do cumprimento das leis trabalhistas e na proteção contra abusos.
+							</li>
+							<li>
+								<strong className="font-semibold">Mediação de conflitos:</strong> Auxilia na
+								resolução de disputas entre trabalhadores e empregadores.
+							</li>
+							<li>
+								<strong className="font-semibold">
+									Fortalecimento da classe trabalhadora:
+								</strong>{' '}
+								Promove união entre os membros para conquistar melhorias coletivas.
+							</li>
+							<li>
+								<strong className="font-semibold">Influência política e social:</strong>{' '}
+								Participa de debates e formulações de políticas públicas voltadas ao trabalho.
+							</li>
+						</ol>
+
 						<p className="text-justify">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
-							reprehenderit voluptatibus, porro quasi sunt ipsum officiis rerum repudiandae
-							voluptate maxime ex? Nisi velit sequi hic reprehenderit culpa numquam aspernatur
-							possimus!
+							Os sindicatos contribuem para equilibrar as relações de poder entre empregadores e
+							empregados, ajudando a construir uma sociedade mais justa
 						</p>
 					</div>
 				</div>

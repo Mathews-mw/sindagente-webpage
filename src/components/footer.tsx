@@ -14,9 +14,8 @@ export function Footer() {
 						</div>
 
 						<small>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis ut doloribus
-							praesentium, iste neque nihil a fugiat delectus, magnam accusantium culpa. Alias
-							consectetur quae rem officia animi voluptatum ducimus maxime.
+							Sindagente é uma organização sindical representativa da categoria profissional
+							estadual e municipal dos Agentes de Combate às Endemias.
 						</small>
 					</div>
 
@@ -32,19 +31,22 @@ export function Footer() {
 							<span className="text-sm font-semibold">Siga-nos: </span>
 							<div className="flex gap-2">
 								<a
-									href="#facebook"
+									href="https://www.facebook.com/sindagente.amz"
+									target="_blank"
 									className="flex items-center justify-center rounded-full border p-1"
 								>
 									<Facebook className="h-4 w-4" />
 								</a>
 								<a
-									href="#instagram"
+									href="https://www.instagram.com/sindagente_am/"
+									target="_blank"
 									className="flex items-center justify-center rounded-full border p-1"
 								>
 									<Instagram className="h-4 w-4" />
 								</a>
 								<a
-									href="#twitter"
+									href="https://x.com/sindagente_am"
+									target="_blank"
 									className="flex items-center justify-center rounded-full border p-1"
 								>
 									<Twitter className="h-4 w-4" />
@@ -54,14 +56,13 @@ export function Footer() {
 
 						<div>
 							<span className="text-sm font-semibold">Contato: </span>
-							<span className="text-sm">(92) 9100-8272 / (92) 4101-8636</span>
+							<span className="text-sm">(92) 98506-9363</span>
 						</div>
 
 						<div>
 							<span className="text-sm font-semibold">Endereço: </span>
 							<span className="text-sm">
-								Rua Seriano, nº 51, Quadra 70, 2º Andar, Sala 09, Cidade Nova - I, Manaus/AM.
-								CEP: 69095-180
+								Rua Antônio Landi, nº 509, Riacho Doce III - CEP 69095-245 - Manaus/AM
 							</span>
 						</div>
 					</div>

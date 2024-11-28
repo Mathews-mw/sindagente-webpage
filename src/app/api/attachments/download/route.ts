@@ -6,7 +6,6 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { env } from '@/env';
 import { prisma } from '@/lib/prisma';
 import { s3Client } from '@/lib/aws-s3/aws-s3-connect';
-import awsBucketsConfig from '@/config/aws-buckets-config';
 
 export async function GET(request: NextRequest, response: NextResponse) {
 	if (request.method !== 'GET') {
@@ -25,7 +24,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
 	try {
 		const attachment = await prisma.attachment.findUnique({
 			where: {
-				fileName,
+				name: fileName,
 			},
 		});
 
@@ -38,9 +37,11 @@ export async function GET(request: NextRequest, response: NextResponse) {
 			);
 		}
 
+		const fileUrl = new URL(attachment.url);
+
 		const command = new GetObjectCommand({
 			Bucket: env.AWS_BUCKET_NAME,
-			Key: `${awsBucketsConfig.OBJECT_FOLDER_PATH}/${fileName}`,
+			Key: fileUrl.pathname.replace('/', ''),
 		});
 
 		// Gera a URL pré-assinada com validade de 1 hora (3600 segundos)

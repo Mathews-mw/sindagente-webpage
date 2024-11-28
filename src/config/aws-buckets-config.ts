@@ -1,3 +1,6 @@
 export default {
-	OBJECT_FOLDER_PATH: 'arquivos',
+	BUCKETS_OBJECTS: {
+		files: 'arquivos',
+		images: 'imagens',
+	},
 };

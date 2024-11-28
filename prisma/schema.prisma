@@ -41,34 +41,57 @@ model Session {
   @@map("sessions")
 }
 
-enum FileType {
+enum AttachmentType {
+  IMAGEM
+  ARQUIVO
+}
+
+enum FileCategory {
   GENERIC
-  FEDERAL
-  ESTADUAL
-  MUNICIPAL
   DIVERSOS
+  FILIACAO
+  DESFILIACAO
+  LEGISLACAO_FEDERAL
+  LEGISLACAO_ESTADUAL
+  LEGISLACAO_MUNICIPAL
+  PRESTACAO_CONTAS
 }
 
 model Attachment {
-  id          String   @id @default(uuid())
+  id          String         @id @default(uuid())
   title       String
-  fileName    String   @unique @map("file_name")
-  type        FileType @default(GENERIC)
+  name        String         @unique
+  type        AttachmentType
+  category    FileCategory?
   url         String
-  tag         String?
   description String?
-  createdAt   DateTime @default(now()) @map("created_at")
+  createdAt   DateTime       @default(now()) @map("created_at")
 
   @@map("attachments")
 }
 
 model Post {
+  id           String    @id @default(uuid())
+  slug         String    @unique
+  title        String
+  preview      String
+  imagePreview String?   @map("image_preview")
+  content      String
+  available    Boolean   @default(true)
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime? @map("updated_at")
+
+  @@map("posts")
+}
+
+model Announcement {
   id        String    @id @default(uuid())
   slug      String    @unique
   title     String
   content   String
+  available Boolean   @default(true)
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @map("updated_at")
 
-  @@map("posts")
+  @@map("announcements")
 }

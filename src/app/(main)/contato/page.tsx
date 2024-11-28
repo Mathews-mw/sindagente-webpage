@@ -25,7 +25,7 @@ export default function ContatoPage() {
 							<Phone />
 							<strong className="text-xl">Telefone</strong>
 						</div>
-						<span className="font-semibold">(92) 4101-8636</span>
+						<span className="font-semibold">(92) 98506-9363</span>
 					</div>
 
 					<div className="flex flex-col items-center gap-4 text-white">
@@ -33,7 +33,7 @@ export default function ContatoPage() {
 							<Mail />
 							<strong className="text-xl">E-mail</strong>
 						</div>
-						<span className="font-semibold">contato@sindagenteam.org</span>
+						<span className="font-semibold">sindagente.amz@gmail.com</span>
 					</div>
 
 					<div className="flex flex-col items-center gap-4 text-white">
@@ -60,10 +60,7 @@ export default function ContatoPage() {
 						</CardHeader>
 
 						<CardContent className="max-w-[420px]">
-							<p>
-								Rua Seriano, nº 51, Quadra 70, 2º Andar, Sala 09, Cidade Nova - I, Manaus/AM.
-								CEP: 69095-180
-							</p>
+							<p>Rua: Antônio Landi, nº 509, Riacho Doce III - CEP 69095-245 - Manaus/AM</p>
 						</CardContent>
 					</Card>
 
@@ -88,7 +85,7 @@ export default function ContatoPage() {
 
 			<div>
 				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2420423551503!2d-59.9753917!3d-3.029590099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c197e5e27d01b%3A0xa2d537658994a277!2sRua%20Seriano%2C%2051%20-%20Cidade%20Nova%2C%20Manaus%20-%20AM%2C%2069095-180!5e0!3m2!1spt-BR!2sbr!4v1731866937706!5m2!1spt-BR!2sbr"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7968.4956765495035!2d-59.972572906387676!3d-3.0280148632567365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c19c55cfdf089%3A0xf8626a89a9569d25!2sSINDAGENTE-AM!5e0!3m2!1spt-BR!2sbr!4v1732754837027!5m2!1spt-BR!2sbr"
 					width="100%"
 					height="500"
 					loading="lazy"

@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { updateUser } from '@/app/api/@requests/update-user';
+import { updateUser } from '@/app/api/@requests/users/update-user';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
 import {
 	DialogContent,
@@ -24,7 +24,7 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
-import { resetUserPassword } from '@/app/api/@requests/reset-user-password';
+import { resetUserPassword } from '@/app/api/@requests/users/reset-user-password';
 
 interface IUserConfigsDialogProps {
 	isOpen: boolean;

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { Section } from '@/components/section';
 import {
 	Table,
@@ -11,15 +13,14 @@ import {
 } from '@/components/ui/table';
 import { AttachmentsTableRow } from './attachments-table-row';
 import { useQuery } from '@tanstack/react-query';
-import { getAttachments } from '@/app/api/@requests/get-attachments';
+import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
 import { AttachmentsTableRowSkeleton } from './attachment-table-row-skeleton';
-import { Button } from '@/components/ui/button';
-import { FileUp } from 'lucide-react';
-import { UploadAttachmentDialog } from './upload-attachment-dialog';
-import { useState } from 'react';
+import { UploadFileDialog } from './upload-file-dialog';
+import { UploadImageDialog } from './upload-image-dialog';
 
 export default function AttachmentsPage() {
-	const [isOpenUploadModal, setIsOpenUploadModal] = useState(false);
+	const [isOpenUploadFileModal, setIsOpenUploadFileModal] = useState(false);
+	const [isOpenUploadImageModal, setIsOpenUploadImageModal] = useState(false);
 
 	const { data: attachments, isFetching } = useQuery({
 		queryKey: ['attachments'],
@@ -36,10 +37,15 @@ export default function AttachmentsPage() {
 					</h1>
 				</div>
 
-				<div className="flex w-full justify-end">
-					<UploadAttachmentDialog
-						isOpen={isOpenUploadModal}
-						onOpen={() => setIsOpenUploadModal(!isOpenUploadModal)}
+				<div className="flex w-full justify-end gap-4">
+					<UploadImageDialog
+						isOpen={isOpenUploadImageModal}
+						onOpen={() => setIsOpenUploadImageModal(!isOpenUploadImageModal)}
+					/>
+
+					<UploadFileDialog
+						isOpen={isOpenUploadFileModal}
+						onOpen={() => setIsOpenUploadFileModal(!isOpenUploadFileModal)}
 					/>
 				</div>
 
@@ -49,7 +55,8 @@ export default function AttachmentsPage() {
 							<TableRow>
 								<TableHead className="w-[64px]"></TableHead>
 								<TableHead className="min-w-[320px]">ARQUIVO</TableHead>
-								<TableHead className="w-[220px] text-center">TIPO DE ARQUIVO</TableHead>
+								<TableHead className="w-[220px] text-center">TIPO DO ARQUIVO</TableHead>
+								<TableHead className="w-[220px] text-center">CATEGORIA DO ARQUIVO</TableHead>
 								<TableHead className="w-[200px] text-center">UPLOAD EM</TableHead>
 								<TableHead colSpan={3}></TableHead>
 								<TableHead className="w-[64px] text-right"></TableHead>

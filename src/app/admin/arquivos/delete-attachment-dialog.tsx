@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { Button } from '@/components/ui/button';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
-import { deleteAttachment } from '@/app/api/@requests/delete-attachment';
+import { deleteAttachment } from '@/app/api/@requests/attachments/delete-attachment';
 import {
 	Dialog,
 	DialogContent,
@@ -60,7 +60,7 @@ export function DeleteAttachmentDialog({
 				<DialogHeader>
 					<DialogTitle>Deletar Arquivo</DialogTitle>
 					<DialogDescription>
-						Você tem certeza que deseja deletar o arquivo {attachment.fileName}?
+						Você tem certeza que deseja deletar o arquivo {attachment.name}?
 					</DialogDescription>
 				</DialogHeader>
 

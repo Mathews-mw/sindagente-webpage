@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FileType } from '@prisma/client';
+import { FileCategory } from '@prisma/client';
 import { Section } from '@/components/section';
 import { useQuery } from '@tanstack/react-query';
 
@@ -11,31 +11,39 @@ import { FederalTabContent } from './federal-tab-content';
 import { EstadualTabContent } from './estadual-tab-content';
 import { MunicipalTabContent } from './mucipal-tab-content';
 import { DiversosTabContent } from './diversos-tab-content';
-import { getAttachments } from '@/app/api/@requests/get-attachments';
+import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function LegislacaoPage() {
-	const [tabSelection, setTabSelection] = useState<FileType>(FileType.FEDERAL);
+	const [tabSelection, setTabSelection] = useState<FileCategory>(
+		FileCategory.LEGISLACAO_FEDERAL
+	);
 
 	const { data: attachments, isFetching } = useQuery({
-		queryKey: ['attachments'],
+		queryKey: ['attachments', 'legislacao'],
 		queryFn: async () => getAttachments({}),
 	});
 
 	const federalAttachments = attachments
-		? attachments.attachments.filter((attachment) => attachment.type === 'FEDERAL')
+		? attachments.attachments.filter(
+				(attachment) => attachment.category === 'LEGISLACAO_FEDERAL'
+			)
 		: [];
 
 	const estadualAttachments = attachments
-		? attachments.attachments.filter((attachment) => attachment.type === 'ESTADUAL')
+		? attachments.attachments.filter(
+				(attachment) => attachment.category === 'LEGISLACAO_ESTADUAL'
+			)
 		: [];
 
 	const municipalAttachments = attachments
-		? attachments.attachments.filter((attachment) => attachment.type === 'MUNICIPAL')
+		? attachments.attachments.filter(
+				(attachment) => attachment.category === 'LEGISLACAO_MUNICIPAL'
+			)
 		: [];
 
 	const diversosAttachments = attachments
-		? attachments.attachments.filter((attachment) => attachment.type === 'DIVERSOS')
+		? attachments.attachments.filter((attachment) => attachment.category === 'DIVERSOS')
 		: [];
 
 	return (
@@ -53,26 +61,25 @@ export default function LegislacaoPage() {
 
 				<div>
 					<Tabs
-						defaultValue="account"
-						onValueChange={(value) => setTabSelection(value as FileType)}
+						onValueChange={(value) => setTabSelection(value as FileCategory)}
 						value={tabSelection}
 					>
 						<TabsList>
-							<TabsTrigger value={FileType.FEDERAL}>Federal</TabsTrigger>
-							<TabsTrigger value={FileType.ESTADUAL}>Estadual</TabsTrigger>
-							<TabsTrigger value={FileType.MUNICIPAL}>Municipal</TabsTrigger>
-							<TabsTrigger value={FileType.DIVERSOS}>Doc. Diversos</TabsTrigger>
+							<TabsTrigger value={FileCategory.LEGISLACAO_FEDERAL}>Federal</TabsTrigger>
+							<TabsTrigger value={FileCategory.LEGISLACAO_ESTADUAL}>Estadual</TabsTrigger>
+							<TabsTrigger value={FileCategory.LEGISLACAO_MUNICIPAL}>Municipal</TabsTrigger>
+							<TabsTrigger value={FileCategory.DIVERSOS}>Doc. Diversos</TabsTrigger>
 						</TabsList>
-						<TabsContent value={FileType.FEDERAL}>
+						<TabsContent value={FileCategory.LEGISLACAO_FEDERAL}>
 							<FederalTabContent attachments={federalAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileType.ESTADUAL}>
+						<TabsContent value={FileCategory.LEGISLACAO_ESTADUAL}>
 							<EstadualTabContent attachments={estadualAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileType.MUNICIPAL}>
+						<TabsContent value={FileCategory.LEGISLACAO_MUNICIPAL}>
 							<MunicipalTabContent attachments={municipalAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileType.DIVERSOS}>
+						<TabsContent value={FileCategory.DIVERSOS}>
 							<DiversosTabContent attachments={diversosAttachments} isFetching={isFetching} />
 						</TabsContent>
 					</Tabs>

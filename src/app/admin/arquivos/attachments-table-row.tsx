@@ -2,16 +2,17 @@
 
 import dayjs from 'dayjs';
 import { useState } from 'react';
-
 import { Attachment } from '@prisma/client';
+
 import { Button } from '@/components/ui/button';
-import { FileDown, Search, Trash2 } from 'lucide-react';
 import { TableCell, TableRow } from '@/components/ui/table';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
-import { AttachmentDetailsDialog } from './attachments-details-dialog';
-import { downloadAttachments } from '@/app/api/@requests/download-attachment';
 import { DeleteAttachmentDialog } from './delete-attachment-dialog';
+import { AttachmentDetailsDialog } from './attachments-details-dialog';
+import { downloadAttachments } from '@/app/api/@requests/attachments/download-attachment';
+
+import { FileDown, Search } from 'lucide-react';
 
 interface IAttachmentsTableRowProps {
 	attachment: Attachment;
@@ -25,7 +26,7 @@ export function AttachmentsTableRow({ attachment }: IAttachmentsTableRowProps) {
 
 	async function handleDownloadFile() {
 		try {
-			const { url } = await downloadAttachments(attachment.fileName);
+			const { url } = await downloadAttachments(attachment.name);
 
 			window.open(url, '_blank');
 		} catch (error) {
@@ -50,6 +51,7 @@ export function AttachmentsTableRow({ attachment }: IAttachmentsTableRowProps) {
 			</TableCell>
 			<TableCell className="font-semibold">{attachment.title}</TableCell>
 			<TableCell className="text-center font-semibold">{attachment.type}</TableCell>
+			<TableCell className="text-center font-semibold">{attachment.category}</TableCell>
 			<TableCell className="text-center font-semibold">
 				<time>{createdAt}</time>
 			</TableCell>

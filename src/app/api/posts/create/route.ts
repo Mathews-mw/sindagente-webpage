@@ -5,7 +5,9 @@ import { prisma } from '@/lib/prisma';
 
 const bodySchema = z.object({
 	title: z.string(),
+	preview: z.string(),
 	content: z.string(),
+	url_image_preview: z.optional(z.string()),
 });
 
 export async function POST(request: NextRequest) {
@@ -33,7 +35,7 @@ export async function POST(request: NextRequest) {
 		);
 	}
 
-	const { title, content } = dataParse.data;
+	const { title, preview, content, url_image_preview } = dataParse.data;
 
 	try {
 		const postSlug = `${title.trim().toLowerCase().replaceAll(' ', '-')}-${Date.now()}`;
@@ -42,7 +44,9 @@ export async function POST(request: NextRequest) {
 			data: {
 				slug: postSlug,
 				title,
+				preview,
 				content,
+				imagePreview: url_image_preview,
 			},
 		});
 

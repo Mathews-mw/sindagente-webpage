@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { PasswordInput } from '@/components/password-input';
-import { registerUser } from '@/app/api/@requests/register-user';
+import { registerUser } from '@/app/api/@requests/users/register-user';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
 import {
 	Dialog,

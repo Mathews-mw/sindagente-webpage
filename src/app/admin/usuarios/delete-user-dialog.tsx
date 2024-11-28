@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { deleteUser } from '@/app/api/@requests/delete-user';
+import { deleteUser } from '@/app/api/@requests/users/delete-user';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
 import {
 	DialogClose,

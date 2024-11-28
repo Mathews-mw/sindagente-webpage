@@ -9,11 +9,11 @@ export async function AdminNavLink() {
 		<nav className="flex flex-row items-center space-x-4">
 			<AdminNavItem title="HOME" href="/admin" />
 			<AdminNavItem title="ARQUIVOS" href="/admin/arquivos" />
-			<AdminNavItem
-				title="POST NOTÍCIAS"
-				href="/admin/post-noticias
-			"
-			/>
+
+			<AdminNavItem title="POST DE NOTÍCIAS" href="/admin/posts/publicar" />
+			<AdminNavItem title="GERENCIAR POSTS" href="/admin/posts/gerenciar" />
+
+			<AdminNavItem title="POST DE COMUNICADOS" href="/admin/comunicados" />
 
 			{session?.user.role === 'ADMIN' && (
 				<AdminNavItem title="USUÁRIOS" href="/admin/usuarios" />
