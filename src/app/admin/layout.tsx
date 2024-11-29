@@ -6,6 +6,7 @@ import { Footer } from '@/components/footer';
 import { AdminHeader } from '@/components/admin-header';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { nextAuthOptions } from '../api/auth/[...nextauth]/route';
+import { AdminFooter } from '@/components/admin-footer';
 
 export default async function MainLayout({ children }: { children: ReactNode }) {
 	const session = await getServerSession(nextAuthOptions);
@@ -21,7 +22,7 @@ export default async function MainLayout({ children }: { children: ReactNode }) 
 
 				<main className="flex-grow">{children}</main>
 
-				<Footer />
+				<AdminFooter />
 			</div>
 		</ThemeProvider>
 	);

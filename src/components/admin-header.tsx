@@ -4,11 +4,12 @@ import { Mail, Phone } from 'lucide-react';
 import { Separator } from './ui/separator';
 import { AccountMenu } from './account-menu';
 import { AdminNavLink } from './admin-nav-link/admin-nav-link';
+import { ThemeModeToggle } from './theme-mode-toggle';
 
 export function AdminHeader() {
 	return (
 		<header>
-			<div>
+			<div className="border-b shadow-sm">
 				<div className="flex justify-between gap-4 bg-primary/80 px-4 py-2 text-background">
 					<small className="font-semibold">
 						Sindicato dos Trabalhadores em Controle e Combate de Endemias No Estado do Amazonas
@@ -35,9 +36,9 @@ export function AdminHeader() {
 					<div className="flex items-center gap-8">
 						<AdminNavLink />
 
-						<Separator orientation="vertical" />
-
 						<AccountMenu />
+
+						<ThemeModeToggle />
 					</div>
 				</div>
 			</div>

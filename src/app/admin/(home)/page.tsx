@@ -16,7 +16,7 @@ export default function AdminPage() {
 			</div>
 
 			<div className="flex h-full w-full items-center justify-center">
-				<Image src="/admin_painel.jpg" alt="Painel administrativo" width={500} height={500} />
+				<Image src="/admin_painel.png" alt="Painel administrativo" width={500} height={500} />
 			</div>
 		</Section>
 	);

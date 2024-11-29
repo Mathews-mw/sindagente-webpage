@@ -27,7 +27,7 @@ export function NestedNavItems() {
 		<DropdownMenu>
 			<DropdownMenuTrigger
 				data-state={isActive}
-				className="group peer flex items-center gap-1 rounded-md p-2 text-sm text-slate-500 hover:bg-secondary hover:text-primary data-[state=true]:font-bold data-[state=true]:text-primary"
+				className="group peer flex items-center gap-1 rounded-md p-2 text-sm text-muted-foreground hover:bg-secondary hover:text-primary data-[state=true]:font-bold data-[state=true]:text-primary"
 			>
 				NOTÍCIAS E COMUNICADOS
 				<ChevronDown className="h-5 w-5 duration-100 group-data-[state=open]:rotate-180" />

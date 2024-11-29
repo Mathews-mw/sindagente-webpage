@@ -11,7 +11,7 @@ import { PageTitle } from '@/components/page-title';
 import { useQuery } from '@tanstack/react-query';
 import { getPostBySlug } from '@/app/api/@requests/posts/get-post-by-slug';
 
-export default function EditPage() {
+export default function EditPostPage() {
 	const pathname = usePathname();
 	const segments = pathname.split('/');
 	const slug = segments[segments.length - 2]; // retorna especificamente o parâmetro do slug da rota (/posts/[slug]/editar)

@@ -18,7 +18,6 @@ import {
 } from './ui/dropdown-menu';
 
 import { ChevronDown, LogOut, UserRound } from 'lucide-react';
-import { ThemeModeToggle } from './theme-mode-toggle';
 
 export function AccountMenu() {
 	const { data, status } = useSession();
@@ -41,7 +40,7 @@ export function AccountMenu() {
 					</Button>
 				</DropdownMenuTrigger>
 
-				<DropdownMenuContent align="end" className="w-56 text-slate-600">
+				<DropdownMenuContent align="end" className="w-56 text-muted-foreground">
 					<DropdownMenuLabel className="flex flex-col">
 						{status === 'loading' ? (
 							<div className="space-y-1.5">
@@ -51,7 +50,7 @@ export function AccountMenu() {
 						) : (
 							<>
 								<span>{data?.user?.name}</span>
-								<span className="text-slate-500">{data?.user?.email}</span>
+								<span>{data?.user?.email}</span>
 							</>
 						)}
 					</DropdownMenuLabel>
@@ -64,10 +63,6 @@ export function AccountMenu() {
 							<span>Perfil do usuário</span>
 						</DropdownMenuItem>
 					</DialogTrigger>
-
-					<DropdownMenuItem asChild>
-						<ThemeModeToggle />
-					</DropdownMenuItem>
 
 					<DropdownMenuItem asChild className="text-rose-500 dark:text-rose-400">
 						<button
