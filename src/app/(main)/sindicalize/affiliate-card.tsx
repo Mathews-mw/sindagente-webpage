@@ -91,7 +91,10 @@ export function AffiliateCard() {
 			</CardContent>
 			<CardFooter>
 				<div className="flex w-full justify-center">
-					<Button onClick={handleDownloadFile} disabled={isFetching}>
+					<Button
+						onClick={handleDownloadFile}
+						disabled={isFetching || attachmentsResponse?.attachments.length === 0}
+					>
 						<FileCheck />
 						Formulário de Afiliação
 					</Button>

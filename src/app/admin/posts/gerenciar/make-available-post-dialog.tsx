@@ -14,6 +14,12 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import { Eye, Loader2 } from 'lucide-react';
 
@@ -46,11 +52,20 @@ export function MakeAvailablePostDialog({ post, isOpen, onOpen }: IMakeAvailable
 
 	return (
 		<Dialog open={isOpen} onOpenChange={onOpen}>
-			<DialogTrigger asChild>
-				<Button size="xs" variant="outline">
-					<Eye />
-				</Button>
-			</DialogTrigger>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<DialogTrigger asChild>
+							<Button size="xs" variant="outline">
+								<Eye />
+							</Button>
+						</DialogTrigger>
+					</TooltipTrigger>
+					<TooltipContent>
+						<p>Tornar publicação disponível</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 
 			<DialogContent>
 				<DialogHeader>

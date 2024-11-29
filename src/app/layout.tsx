@@ -26,7 +26,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt-BR">
+		<html lang="pt-BR" suppressHydrationWarning>
 			<body className={twMerge('min-h-screen bg-background antialiased', raleway.className)}>
 				<NextAuthSessionProvider>
 					<TanstackQueryClientProvider>{children}</TanstackQueryClientProvider>

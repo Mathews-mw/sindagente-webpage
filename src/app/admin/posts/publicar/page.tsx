@@ -206,7 +206,7 @@ export default function PostsPage() {
 
 	return (
 		<Section className="my-8 space-y-8">
-			<PageTitle title="Editor de Textos" />
+			<PageTitle title="Publicar Notícia" />
 
 			<p>
 				Para inserir um novo post você vai precisar informar o <strong>título</strong>, a{' '}

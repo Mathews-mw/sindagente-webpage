@@ -18,6 +18,7 @@ import {
 } from './ui/dropdown-menu';
 
 import { ChevronDown, LogOut, UserRound } from 'lucide-react';
+import { ThemeModeToggle } from './theme-mode-toggle';
 
 export function AccountMenu() {
 	const { data, status } = useSession();
@@ -63,6 +64,11 @@ export function AccountMenu() {
 							<span>Perfil do usuário</span>
 						</DropdownMenuItem>
 					</DialogTrigger>
+
+					<DropdownMenuItem asChild>
+						<ThemeModeToggle />
+					</DropdownMenuItem>
+
 					<DropdownMenuItem asChild className="text-rose-500 dark:text-rose-400">
 						<button
 							className="w-full cursor-pointer"

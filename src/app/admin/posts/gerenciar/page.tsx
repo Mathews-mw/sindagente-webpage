@@ -68,6 +68,7 @@ export default function ManagerPost() {
 							<TableHead className="w-[140px] text-center">DISPONÍVEL</TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
+							<TableHead className="w-[64px] text-right"></TableHead>
 						</TableRow>
 					</TableHeader>
 

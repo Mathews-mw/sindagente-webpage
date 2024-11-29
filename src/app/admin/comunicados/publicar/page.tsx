@@ -136,7 +136,7 @@ export default function AnnouncementsPage() {
 
 	return (
 		<Section className="my-8 space-y-8">
-			<PageTitle title="Post de Comunicados" />
+			<PageTitle title="Publicar Comunicado" />
 
 			<p>Crie comunicados para serem exibidos no site.</p>
 

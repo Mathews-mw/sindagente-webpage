@@ -68,7 +68,11 @@ export function DisaffiliateCard() {
 			</CardContent>
 			<CardFooter>
 				<div className="flex w-full justify-center">
-					<Button variant="outline" onClick={handleDownloadFile} disabled={isFetching}>
+					<Button
+						variant="outline"
+						onClick={handleDownloadFile}
+						disabled={isFetching || attachmentsResponse?.attachments.length === 0}
+					>
 						<FileX />
 						Formulário de desfiliação
 					</Button>

@@ -14,6 +14,12 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import { Loader2, Trash2 } from 'lucide-react';
 
@@ -42,11 +48,20 @@ export function DeletePostDialog({ post, isOpen, onOpen }: IDeletePostDialogProp
 
 	return (
 		<Dialog open={isOpen} onOpenChange={onOpen}>
-			<DialogTrigger asChild>
-				<Button size="xs" variant="destructive">
-					<Trash2 />
-				</Button>
-			</DialogTrigger>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<DialogTrigger asChild>
+							<Button size="xs" variant="destructive">
+								<Trash2 />
+							</Button>
+						</DialogTrigger>
+					</TooltipTrigger>
+					<TooltipContent>
+						<p>Deletar postagem</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 
 			<DialogContent>
 				<DialogHeader>

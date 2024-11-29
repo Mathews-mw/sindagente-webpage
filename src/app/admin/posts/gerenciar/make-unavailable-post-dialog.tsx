@@ -14,6 +14,12 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 import { EyeOff, Loader2 } from 'lucide-react';
 
@@ -50,11 +56,20 @@ export function MakeUnavailablePostDialog({
 
 	return (
 		<Dialog open={isOpen} onOpenChange={onOpen}>
-			<DialogTrigger asChild>
-				<Button size="xs" variant="outline">
-					<EyeOff />
-				</Button>
-			</DialogTrigger>
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<DialogTrigger asChild>
+							<Button size="xs" variant="outline">
+								<EyeOff />
+							</Button>
+						</DialogTrigger>
+					</TooltipTrigger>
+					<TooltipContent>
+						<p>Tornar a publicação indisponível</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
 
 			<DialogContent>
 				<DialogHeader>

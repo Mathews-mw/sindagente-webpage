@@ -7,8 +7,15 @@ import { DeletePostDialog } from './delete-post-dialog';
 import { TableCell, TableRow } from '@/components/ui/table';
 import { MakeAvailablePostDialog } from './make-available-post-dialog';
 import { MakeUnavailablePostDialog } from './make-unavailable-post-dialog';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip';
 
-import { Check, PencilLine, X } from 'lucide-react';
+import { Check, PencilLine, Search, SquareArrowOutUpRight, X } from 'lucide-react';
+import Link from 'next/link';
 
 interface IPostTableRowProps {
 	post: Post;
@@ -24,9 +31,20 @@ export function PostTableRow({ post }: IPostTableRowProps) {
 	return (
 		<TableRow>
 			<TableCell>
-				<Button size="xs" variant="outline">
-					<PencilLine />
-				</Button>
+				<TooltipProvider>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button size="xs" variant="outline" asChild>
+								<Link href={`/comunicacao/noticia/${post.slug}`} target="_blank">
+									<SquareArrowOutUpRight />
+								</Link>
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Visualizar publicação</p>
+						</TooltipContent>
+					</Tooltip>
+				</TooltipProvider>
 			</TableCell>
 			<TableCell className="">{post.slug}</TableCell>
 			<TableCell className="">{post.title}</TableCell>
@@ -41,6 +59,22 @@ export function PostTableRow({ post }: IPostTableRowProps) {
 						<X className="h-5 w-5 text-rose-500" />
 					)}
 				</div>
+			</TableCell>
+			<TableCell className="text-right">
+				<TooltipProvider>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Button size="xs" variant="outline" asChild>
+								<Link href={`/admin/posts/${post.slug}/editar`}>
+									<PencilLine />
+								</Link>
+							</Button>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Editar publicação</p>
+						</TooltipContent>
+					</Tooltip>
+				</TooltipProvider>
 			</TableCell>
 			<TableCell className="text-right">
 				{post.available ? (

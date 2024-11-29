@@ -1,11 +1,7 @@
-.post {
+.tiptap {
   :first-child {
     margin-top: 0;
   }
-
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
 
   img {
     display: block;
@@ -13,6 +9,10 @@
     margin: 1rem 0;
     max-width: 100%;
     object-fit: cover;
+    
+    &.ProseMirror-selectednode {
+      outline: 3px solid #3b82f6;
+    }
   }
 
   a {
@@ -31,9 +31,9 @@
   h4, 
   h5, 
   h6 {
-    line-height: 1.1;
+    line-height: 1.0;
+    margin: 1rem 0rem;
     text-wrap: pretty;
-    color: hsl(142.1 76.2% 36.3%);
   }
 
   h1, 
