@@ -1,5 +1,7 @@
 ## Inspirations
 https://sindagenteam.com.br -> Original site
+https://news.google.com/home?hl=pt-BR&gl=BR&ceid=BR:pt-419
+https://www.youtube.com/watch?v=VxY-diMoDlI
 
 https://itaipu.energy/
 https://blueskyeating.com/

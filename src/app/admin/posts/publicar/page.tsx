@@ -205,7 +205,7 @@ export default function PostsPage() {
 	}
 
 	return (
-		<Section className="my-8 space-y-8">
+		<Section className="space-y-8">
 			<PageTitle title="Publicar Notícia" />
 
 			<p>

@@ -20,7 +20,7 @@ export default async function MainLayout({ children }: { children: ReactNode }) 
 			<div className="flex min-h-screen flex-col">
 				<AdminHeader />
 
-				<main className="flex-grow">{children}</main>
+				<main className="my-8 flex-grow">{children}</main>
 
 				<AdminFooter />
 			</div>

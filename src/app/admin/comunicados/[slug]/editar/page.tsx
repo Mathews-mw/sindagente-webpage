@@ -22,7 +22,7 @@ export default function EditAnnouncementPage() {
 	});
 
 	return (
-		<Section className="my-8 space-y-8">
+		<Section className="space-y-8">
 			<PageTitle title="Publicar Comunicado" />
 
 			<p>Crie comunicados para serem exibidos no site.</p>

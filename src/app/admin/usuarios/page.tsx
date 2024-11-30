@@ -5,7 +5,7 @@ import { RegisterUserDialog } from './register-user-dialog';
 
 export default function UsersPage() {
 	return (
-		<Section className="my-8 space-y-8">
+		<Section className="space-y-8">
 			<PageTitle title="Gerenciamento de Usuários" />
 
 			<div className="flex justify-end">

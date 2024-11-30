@@ -29,7 +29,7 @@ export default function AttachmentsPage() {
 
 	return (
 		<div>
-			<Section className="my-8 space-y-8">
+			<Section className="space-y-8">
 				<div className="flex items-center gap-2">
 					<span className="flex h-6 w-1.5 bg-primary" />
 					<h1 className="text-2xl font-semibold text-primary brightness-50">
@@ -49,7 +49,7 @@ export default function AttachmentsPage() {
 					/>
 				</div>
 
-				<div>
+				<div className="rounded-md border">
 					<Table>
 						<TableHeader>
 							<TableRow>

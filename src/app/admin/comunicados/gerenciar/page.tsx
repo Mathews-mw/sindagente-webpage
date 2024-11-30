@@ -55,7 +55,7 @@ export default function ManagerPost() {
 	}, [announcementsResponse]);
 
 	return (
-		<Section className="my-8 space-y-8">
+		<Section className="space-y-8">
 			<PageTitle title="Gerenciar posts" />
 
 			<div className="rounded-md border">
