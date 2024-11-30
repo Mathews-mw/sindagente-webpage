@@ -12,14 +12,14 @@ import { PageTitle } from '@/components/page-title';
 export default function ContatoPage() {
 	return (
 		<div>
-			<Section className="space-y-8">
+			<Section className="mt-8 space-y-8">
 				<PageTitle title="Contatos e Endereço" />
 			</Section>
 
-			<div className="relative mt-8 flex h-[360px] w-full bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-				<div className="absolute z-10 h-[360px] w-full bg-primary opacity-20" />
+			<div className="relative mt-8 h-[260px] w-full bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center lg:h-[360px]">
+				<div className="absolute z-10 h-[260px] w-full bg-primary opacity-20 lg:h-[360px]" />
 
-				<div className="z-50 flex w-full items-center justify-evenly">
+				<div className="z-50 flex h-full w-full flex-col justify-evenly lg:flex lg:flex-row lg:items-center">
 					<div className="flex flex-col items-center gap-4 text-white">
 						<div className="flex items-center gap-2">
 							<Phone />
@@ -47,7 +47,7 @@ export default function ContatoPage() {
 			</div>
 
 			<Section className="my-12">
-				<div className="flex justify-evenly">
+				<div className="flex flex-wrap justify-evenly gap-4">
 					<Card>
 						<CardHeader>
 							<div className="flex gap-2">

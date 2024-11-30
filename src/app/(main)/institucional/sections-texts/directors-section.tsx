@@ -4,14 +4,14 @@ import { Section } from '@/components/section';
 
 export function DirectorsSection() {
 	return (
-		<Section className="my-10">
-			<div className="grid grid-cols-2 space-x-8">
-				<div className="space-y-8">
+		<Section className="my-4 lg:my-10">
+			<div className="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-0 lg:space-x-8">
+				<div className="space-y-2 lg:space-y-8">
 					<div className="inline-block border-b-2 border-primary">
 						<h1 className="text-2xl font-bold text-primary brightness-50">Diretoria</h1>
 					</div>
 
-					<div className="space-y-2">
+					<div className="space-y-4">
 						<p className="text-justify">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias eaque,
 							numquam provident repellendus hic doloremque quibusdam excepturi at quas? Et nulla
@@ -35,7 +35,7 @@ export function DirectorsSection() {
 					alt="about-image"
 					width={6148}
 					height={4099}
-					className="h-[400px] object-cover"
+					className="h-[200px] object-cover lg:h-[400px]"
 				/>
 			</div>
 		</Section>

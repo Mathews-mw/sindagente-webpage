@@ -35,7 +35,7 @@ export function AnnouncementList() {
 		queryKey: ['announcements', 'cursor-mode'],
 		queryFn: async ({ pageParam }) =>
 			await listingAnnouncementsCursorMode({
-				limit: 2,
+				limit: 4,
 				cursor: pageParam,
 			}),
 		initialPageParam: undefined,

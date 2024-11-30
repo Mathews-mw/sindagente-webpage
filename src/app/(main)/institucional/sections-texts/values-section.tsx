@@ -4,9 +4,9 @@ import { Section } from '@/components/section';
 
 export function ValuesSection() {
 	return (
-		<Section className="my-10">
-			<div className="grid grid-cols-2 space-x-8">
-				<div className="space-y-8">
+		<Section className="my-4 lg:my-10">
+			<div className="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-0 lg:space-x-8">
+				<div className="space-y-2 lg:space-y-8">
 					<div className="flex gap-2">
 						<div className="inline-block border-b-2 border-primary">
 							<h1 className="text-2xl font-bold text-primary brightness-50">Missão</h1>
@@ -38,7 +38,7 @@ export function ValuesSection() {
 					alt="about-image"
 					width={6000}
 					height={4000}
-					className="h-[400px] object-cover"
+					className="h-[200px] object-cover lg:h-[400px]"
 				/>
 			</div>
 		</Section>

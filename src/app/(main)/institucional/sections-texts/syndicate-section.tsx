@@ -4,17 +4,17 @@ import { Section } from '@/components/section';
 
 export function SyndicateSection() {
 	return (
-		<Section className="my-10">
-			<div className="grid grid-cols-2 space-x-8">
+		<Section className="lg:my-10">
+			<div className="flex flex-col-reverse gap-2 lg:grid lg:grid-cols-2 lg:gap-0 lg:space-x-8">
 				<Image
 					src="https://img.freepik.com/fotos-gratis/conceito-abstrato-de-rede-ainda-arranjo-de-vida_23-2149035704.jpg?t=st=1731854037~exp=1731857637~hmac=832ca666b9784ddd537a84952d185a92c08192a9a0808f2ad1e302038e01a0fa&w=740"
 					alt="about-image"
 					width={3840}
 					height={5760}
-					className="h-[520px] object-cover"
+					className="h-[220px] object-cover lg:h-[520px]"
 				/>
 
-				<div className="space-y-8">
+				<div className="space-y-4 lg:space-y-8">
 					<div className="inline-block border-b-2 border-primary">
 						<h1 className="text-2xl font-bold text-primary brightness-50">Sindicato</h1>
 					</div>

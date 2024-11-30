@@ -7,7 +7,7 @@ import { DrawerNavigation } from './drawer-navigation/drawer-navigation';
 export function Header() {
 	return (
 		<header>
-			<div>
+			<div className="border-b shadow-sm">
 				<div className="flex justify-center gap-4 bg-primary/80 px-4 py-2 text-background lg:justify-between">
 					<small className="hidden font-semibold lg:block">
 						Sindicato dos Trabalhadores em Controle e Combate de Endemias No Estado do Amazonas
