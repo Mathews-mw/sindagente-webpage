@@ -6,8 +6,8 @@ export function Footer() {
 	return (
 		<footer className="bg-primary">
 			<div className="container mx-auto px-10 py-4 text-background">
-				<div className="grid w-full grid-cols-4 space-x-8">
-					<div>
+				<div className="flex w-full lg:grid lg:grid-cols-4 lg:space-x-8">
+					<div className="hidden lg:block">
 						<div className="flex items-center gap-4">
 							<Image src="/logo.jpg" alt="Logo" width={40} height={40} />
 							<span>SINDAGENTE - AM</span>
@@ -19,14 +19,14 @@ export function Footer() {
 						</small>
 					</div>
 
-					<div className="col-span-2 flex flex-col items-center gap-2">
+					<div className="col-span-2 hidden flex-col items-center gap-2 lg:flex">
 						<h4>Horários de funcionamento</h4>
 
 						<small>Segunda à Sexta: 08:00hs às 17:00hs</small>
 						<small>Sábados e Domingos: Sem Expediente</small>
 					</div>
 
-					<div className="space-y-2">
+					<div className="flex flex-col items-center justify-center space-y-2 text-center lg:items-start lg:justify-start lg:text-start">
 						<div className="flex items-center gap-2">
 							<span className="text-sm font-semibold">Siga-nos: </span>
 							<div className="flex gap-2">

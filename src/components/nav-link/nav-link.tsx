@@ -2,7 +2,7 @@ import { NavItem } from './nav-item';
 
 export function NavLink() {
 	return (
-		<nav className="flex flex-row items-center space-x-4">
+		<nav className="hidden flex-row items-center space-x-4 lg:flex">
 			<NavItem title="HOME" href="/" />
 			<NavItem title="INSTITUCIONAL" href="/institucional" />
 			<NavItem title="COMUNICAÇÃO" href="/comunicacao" />

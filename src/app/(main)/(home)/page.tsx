@@ -9,13 +9,13 @@ export default function HomePage() {
 	return (
 		<div>
 			<div className="relative flex">
-				<div className="absolute z-10 h-[600px] w-full bg-gradient-to-r from-primary opacity-30" />
+				<div className="absolute z-10 h-[300px] w-full bg-gradient-to-r from-primary opacity-30 lg:h-[600px]" />
 				<Image
 					src="https://img.freepik.com/fotos-gratis/padaria-de-bolo-caseiro-em-uma-maquete-de-placa-redonda_53876-65258.jpg?t=st=1731779994~exp=1731783594~hmac=12f985017c3116eacde6ba809564867dbf1f09bd9caaace71cd155a38f2a779c&w=1380"
 					alt="hero-image"
 					width={5000}
 					height={3348}
-					className="z-0 h-[600px] object-cover"
+					className="z-0 h-[300px] object-cover lg:h-[600px]"
 				/>
 			</div>
 
@@ -26,8 +26,8 @@ export default function HomePage() {
 						<h1 className="text-xl font-bold text-primary brightness-50">Sobre o Sindagente</h1>
 					</div>
 
-					<div className="flex h-[300px] justify-between gap-8">
-						<div className="flex h-full max-w-[50%] flex-col justify-between pl-3">
+					<div className="flex justify-between gap-8 lg:h-[300px]">
+						<div className="flex h-full flex-col justify-between gap-4 pl-3 lg:max-w-[50%] lg:gap-0">
 							<div>
 								<p className="text-justify">
 									<strong className="font-semibold">
@@ -53,7 +53,7 @@ export default function HomePage() {
 							alt="about-image"
 							width={600}
 							height={900}
-							className="h-[300px] flex-grow object-cover"
+							className="hidden h-[300px] flex-grow object-cover lg:block"
 						/>
 					</div>
 				</div>
