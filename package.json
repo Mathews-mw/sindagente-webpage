@@ -2,11 +2,7 @@
   "name": "sindagente-webpage",
   "version": "0.1.0",
   "private": true,
-  "prisma": {
-    "engineType": "binary"
-  },
   "scripts": {
-    "generate": "prisma generate",
     "dev": "next dev --turbopack",
     "build": "next build",
     "export": "next build && next export",
