@@ -1,12 +1,13 @@
 /* eslint-disable import/no-duplicates */
 import { z } from 'zod';
-import path from 'node:path';
-import { writeFile } from 'node:fs/promises';
 import { FileCategory } from '@prisma/client';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { env } from '@/env';
 import { prisma } from '@/lib/prisma';
-import localFilesConfig from '@/config/local-files-config';
+import { s3Client } from '@/lib/aws-s3/aws-s3-connect';
+import awsBucketsConfig from '@/config/aws-buckets-config';
 
 const bodySchema = z.object({
 	file: z.object({
@@ -51,21 +52,27 @@ export async function POST(request: NextRequest, res: NextResponse) {
 			);
 		}
 
-		const fileNameSplitted = file.name.split('.');
-		const fileType = fileNameSplitted.pop();
-		const fileNameWithoutType = fileNameSplitted.join('_');
-		const fileName = `${fileNameWithoutType.replaceAll(' ', '_')}_${Date.now().toString()}.${fileType}`;
-
 		const buffer = Buffer.from(await file.arrayBuffer());
-		const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'files', fileName);
+		const fileName = `${file.name}_${Date.now().toString()}`;
 
-		await writeFile(uploadDir, buffer);
+		const command = new PutObjectCommand({
+			Bucket: env.AWS_BUCKET_NAME,
+			Key: `${awsBucketsConfig.BUCKETS_OBJECTS.files}/${fileName}`,
+			Body: buffer,
+			ContentType: file.type,
+		});
+
+		const result = await s3Client.send(command);
+
+		if (result.$metadata.httpStatusCode !== 200) {
+			return Response.json({ error: 'Erro ao tentar fazer upload na cloud' }, { status: 400 });
+		}
 
 		const attachment = await prisma.attachment.create({
 			data: {
 				title,
 				name: fileName,
-				url: `${localFilesConfig.DIR_PATHS.files}/${fileName}`,
+				url: `${env.AWS_BUCKET_BASE_URL}/${awsBucketsConfig.BUCKETS_OBJECTS.files}/${fileName}`,
 				type: 'ARQUIVO',
 				category,
 				description,

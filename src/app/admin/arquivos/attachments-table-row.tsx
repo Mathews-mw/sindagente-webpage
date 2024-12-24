@@ -26,9 +26,9 @@ export function AttachmentsTableRow({ attachment }: IAttachmentsTableRowProps) {
 
 	async function handleDownloadFile() {
 		try {
-			const { url } = await downloadAttachments(attachment.name);
+			// const { url } = await downloadAttachments(attachment.name);
 
-			window.open(url, '_blank');
+			window.open(attachment.url, '_blank');
 		} catch (error) {
 			console.log('Erro ao tentar fazer o download do arquivo: ', error);
 			errorToasterHandler(error, 'Erro ao tentar fazer o download do arquivo');

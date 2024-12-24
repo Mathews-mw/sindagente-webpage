@@ -1,7 +1,13 @@
-import { DirectorsSection } from './sections-texts/directors-section';
-import { SyndicateSection } from './sections-texts/syndicate-section';
+import { Metadata } from 'next';
+
 import { ValuesSection } from './sections-texts/values-section';
 import { StatuteSection } from './sections-texts/statute-section';
+import { DirectorsSection } from './sections-texts/directors-section';
+import { SyndicateSection } from './sections-texts/syndicate-section';
+
+export const metadata: Metadata = {
+	title: 'Institucional',
+};
 
 export default function InstitucionalPage() {
 	return (

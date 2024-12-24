@@ -1,8 +1,11 @@
 import { z } from 'zod';
-import { unlink } from 'node:fs/promises';
 import { NextRequest } from 'next/server';
+import { s3Client } from '@/lib/aws-s3/aws-s3-connect';
+import { DeleteObjectCommand } from '@aws-sdk/client-s3';
 
+import { env } from '@/env';
 import { prisma } from '@/lib/prisma';
+import awsBucketsConfig from '@/config/aws-buckets-config';
 
 interface IParamsProps {
 	params: {
@@ -22,6 +25,8 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 
 	const id = z.string().parse(await params.id);
 
+	console.log('file id: ', id);
+
 	try {
 		const attachment = await prisma.attachment.findUnique({
 			where: {
@@ -38,9 +43,12 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 			);
 		}
 
-		// const filePath = path.join(process.cwd(), 'public', attachment.url);
+		const command = new DeleteObjectCommand({
+			Bucket: env.AWS_BUCKET_NAME,
+			Key: `${awsBucketsConfig.OBJECT_FOLDER_PATH}/${attachment.fileName}`,
+		});
 
-		await unlink(`public/${attachment.url}`);
+		await s3Client.send(command);
 
 		await prisma.attachment.delete({
 			where: {

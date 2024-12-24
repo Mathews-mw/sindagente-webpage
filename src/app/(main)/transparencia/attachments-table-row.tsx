@@ -8,7 +8,6 @@ import { TableCell, TableRow } from '@/components/ui/table';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
 import { AttachmentDetailsDialog } from './attachments-details-dialog';
-import { downloadAttachments } from '@/app/api/@requests/attachments/download-attachment';
 
 import { FileDown, Search } from 'lucide-react';
 
@@ -21,9 +20,9 @@ export function AttachmentsTableRow({ attachment }: IAttachmentsTableRowProps) {
 
 	async function handleDownloadFile() {
 		try {
-			const { url } = await downloadAttachments(attachment.name);
+			// const { url } = await downloadAttachments(attachment.name);
 
-			window.open(url, '_blank');
+			window.open(attachment.url, '_blank');
 		} catch (error) {
 			console.log('Erro ao tentar fazer o download do arquivo: ', error);
 			errorToasterHandler(error, 'Erro ao tentar fazer o download do arquivo');

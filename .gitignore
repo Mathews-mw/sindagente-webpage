@@ -82,3 +82,14 @@ yarn-error.log*
 next-env.d.ts
 
 notes.md
+
+
+# Ignorar todos os arquivos dentro de tmp/uploads e suas subpastas
+/public/uploads/**
+# Fazer exceções para pastas dentro de public/uploads
+!public/uploads/
+!public/uploads/files/
+!public/uploads/images/
+# Adicionar exceções para os arquivos .gitkeep para manter as pastas rastreadas
+!public/uploads/files/.gitkeep
+!public/uploads/images/.gitkeep

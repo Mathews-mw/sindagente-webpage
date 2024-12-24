@@ -31,11 +31,11 @@ export function DirectorsSection() {
 				</div>
 
 				<Image
-					src="https://img.freepik.com/fotos-gratis/pessoas-que-participam-do-evento-de-negocios_23-2149346656.jpg?t=st=1731852725~exp=1731856325~hmac=0a11509a3b37c037a2cd2d3b1bfe3d48e7c20c8469971cf3ca9b3f773379f04a&w=1380"
-					alt="about-image"
+					src="/sindagente-diretoria.jpg"
+					alt="diretoria"
 					width={6148}
 					height={4099}
-					className="h-[200px] object-cover lg:h-[400px]"
+					className="h-[200px] rounded object-cover lg:h-[400px]"
 				/>
 			</div>
 		</Section>

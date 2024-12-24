@@ -1,9 +1,11 @@
 import './styles.css';
 
-import { Section } from '@/components/section';
-import { env } from '@/env';
-import { Post } from '@prisma/client';
 import dayjs from 'dayjs';
+import { Metadata } from 'next';
+import { Post } from '@prisma/client';
+
+import { env } from '@/env';
+import { Section } from '@/components/section';
 
 interface IPostPageProps {
 	params: {
@@ -22,6 +24,14 @@ async function getPost(slug: string): Promise<Post> {
 	const post = await response.json();
 
 	return post;
+}
+
+export async function generateMetadata({ params }: IPostPageProps): Promise<Metadata> {
+	const product = await getPost(params.slug);
+
+	return {
+		title: product.title,
+	};
 }
 
 export default async function PostPage({ params }: IPostPageProps) {

@@ -9,28 +9,34 @@ export function ValuesSection() {
 				<div className="space-y-2 lg:space-y-8">
 					<div className="flex gap-2">
 						<div className="inline-block border-b-2 border-primary">
-							<h1 className="text-2xl font-bold text-primary brightness-50">Missão</h1>
+							<h1 className="text-2xl font-bold text-primary brightness-50">
+								Missão, Visão e Valores
+							</h1>
 						</div>
-						<h1 className="text-2xl font-bold text-primary brightness-50">e Valores</h1>
 					</div>
 
-					<div className="space-y-2">
-						<p className="text-justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias eaque,
-							numquam provident repellendus hic doloremque quibusdam excepturi at quas? Et nulla
-							vitae quisquam accusamus libero? Repellat animi labore blanditiis? Lorem ipsum
-							dolor sit amet, consectetur adipisicing elit. Ipsa nihil sint alias non
-							reiciendis! Laborum, saepe delectus ratione sed omnis a odio, eligendi quasi,
-							magni recusandae quaerat neque voluptatum molestias.
-						</p>
+					<ul className="list-disc space-y-2">
+						<li>
+							<p className="text-justify">
+								<strong>MISSÃO</strong> - Representar e defender os interesses gerais de toda a
+								categoria profissional, os direitos individuais dos filiados.
+							</p>
+						</li>
 
-						<p className="text-justify">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
-							reprehenderit voluptatibus, porro quasi sunt ipsum officiis rerum repudiandae
-							voluptate maxime ex? Nisi velit sequi hic reprehenderit culpa numquam aspernatur
-							possimus!
-						</p>
-					</div>
+						<li>
+							<p className="text-justify">
+								<strong>VISÃO</strong> - Ser e se manter uma referência sindical a sociedade em
+								especial ao trabalhador.
+							</p>
+						</li>
+
+						<li>
+							<p className="text-justify">
+								<strong>VALORES</strong> - Cumprir tudo dentro da lei e da legalidade e fazer
+								tudo o possível para ajudar o trabalhador, tratando com respeito e humanização.
+							</p>
+						</li>
+					</ul>
 				</div>
 
 				<Image
@@ -38,7 +44,7 @@ export function ValuesSection() {
 					alt="about-image"
 					width={6000}
 					height={4000}
-					className="h-[200px] object-cover lg:h-[400px]"
+					className="h-[200px] rounded object-cover lg:h-[400px]"
 				/>
 			</div>
 		</Section>

@@ -6,7 +6,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { errorToasterHandler } from '@/utils/error-toaster-handler';
 import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
-import { downloadAttachments } from '@/app/api/@requests/attachments/download-attachment';
 import {
 	Card,
 	CardContent,
@@ -32,8 +31,8 @@ export function AffiliateCard() {
 			if (attachmentsResponse && attachmentsResponse.attachments) {
 				const affiliateFile = attachmentsResponse.attachments[0];
 
-				const { url } = await downloadAttachments(affiliateFile.name);
-				window.open(url, '_blank');
+				// const { url } = await downloadAttachments(affiliateFile.name);
+				window.open(affiliateFile.url, '_blank');
 			} else {
 				return toast.error('Nenhum arquivo encontrado');
 			}

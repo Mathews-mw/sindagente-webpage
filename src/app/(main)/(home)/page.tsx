@@ -1,9 +1,15 @@
-import { PageSubTitle } from '@/components/page-subtitle';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Metadata } from 'next';
+
 import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import Link from 'next/link';
+import { PageSubTitle } from '@/components/page-subtitle';
 import { LatestNewsSection } from './latest-news-section';
+
+export const metadata: Metadata = {
+	title: 'Home',
+};
 
 export default function HomePage() {
 	return (
@@ -62,8 +68,10 @@ export default function HomePage() {
 			<div className="relative flex">
 				<div className="absolute z-10 h-[400px] w-full bg-gradient-to-r from-primary opacity-30" />
 				<Image
-					src="https://images.unsplash.com/photo-1731410612760-4d9ae680d5e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+					src="/sindagente-group.jpg"
 					alt="hero-image"
+					priority
+					quality={100}
 					width={5000}
 					height={3348}
 					className="z-0 h-[400px] object-cover object-center"

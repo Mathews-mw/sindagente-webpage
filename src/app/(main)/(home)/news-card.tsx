@@ -18,7 +18,7 @@ export function NewsCard({ post }: INewsCardProps) {
 
 	return (
 		<Link href={`/comunicacao/noticia/${post.slug}`}>
-			<Card>
+			<Card title={post.title} className="hover:bg-primary/10">
 				<CardHeader>
 					{post.imagePreview ? (
 						<img
@@ -33,11 +33,7 @@ export function NewsCard({ post }: INewsCardProps) {
 					)}
 				</CardHeader>
 				<CardContent>
-					<span className="line-clamp-1 text-lg font-semibold">
-						Lorem ipsum odor amet, consectetuer adipiscing elit. Pulvinar nullam suscipit erat
-						commodo consequat leo. Praesent consectetur nec eros imperdiet placerat nisi
-						vulputate magna.
-					</span>
+					<span className="line-clamp-1 text-lg font-semibold">{post.title}</span>
 
 					<time title={postedAt} className="text-sm text-muted-foreground">
 						{postedFromNow}

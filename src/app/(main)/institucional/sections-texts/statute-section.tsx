@@ -11,7 +11,7 @@ export function StatuteSection() {
 					alt="about-image"
 					width={5000}
 					height={3000}
-					className="h-[200px] object-cover lg:h-[400px]"
+					className="h-[200px] rounded object-cover lg:h-[400px]"
 				/>
 
 				<div className="space-y-2 lg:space-y-8">

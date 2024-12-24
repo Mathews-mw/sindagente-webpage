@@ -1,12 +1,13 @@
 /* eslint-disable import/no-duplicates */
 import { z } from 'zod';
-import { PutObjectCommand } from '@aws-sdk/client-s3';
+import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/env';
 import { prisma } from '@/lib/prisma';
-import { s3Client } from '@/lib/aws-s3/aws-s3-connect';
 import awsBucketsConfig from '@/config/aws-buckets-config';
+import localFilesConfig from '@/config/local-files-config';
 
 const bodySchema = z.object({
 	file: z.object({
@@ -50,27 +51,21 @@ export async function POST(request: NextRequest, res: NextResponse) {
 			);
 		}
 
+		const fileNameSplitted = file.name.split('.');
+		const fileType = fileNameSplitted.pop();
+		const fileNameWithoutType = fileNameSplitted.join('_');
+		const fileName = `${fileNameWithoutType.replaceAll(' ', '_')}_${Date.now().toString()}.${fileType}`;
+
 		const buffer = Buffer.from(await file.arrayBuffer());
-		const fileName = `${file.name}_${Date.now().toString()}`;
+		const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'images', fileName);
 
-		const command = new PutObjectCommand({
-			Bucket: env.AWS_BUCKET_NAME,
-			Key: `${awsBucketsConfig.BUCKETS_OBJECTS.images}/${fileName}`,
-			Body: buffer,
-			ContentType: file.type,
-		});
-
-		const result = await s3Client.send(command);
-
-		if (result.$metadata.httpStatusCode !== 200) {
-			return Response.json({ error: 'Erro ao tentar fazer upload na cloud' }, { status: 400 });
-		}
+		await writeFile(uploadDir, buffer);
 
 		const attachment = await prisma.attachment.create({
 			data: {
 				title,
 				name: fileName,
-				url: `${env.AWS_BUCKET_BASE_URL}/${awsBucketsConfig.BUCKETS_OBJECTS.images}/${fileName}`,
+				url: `${localFilesConfig.DIR_PATHS.images}/${fileName}`,
 				type: 'IMAGEM',
 				description,
 			},
@@ -78,13 +73,13 @@ export async function POST(request: NextRequest, res: NextResponse) {
 
 		return Response.json(
 			{
-				message: 'Upload de arquivo feito com sucesso',
+				message: 'Upload de imagem feito com sucesso',
 				attachment,
 			},
 			{ status: 200 }
 		);
 	} catch (error) {
-		console.error('Erro ao processar upload de arquivo: ', error);
+		console.error('Erro ao processar upload de imagem: ', error);
 
 		return Response.json({ error: 'Erro ao processar upload' }, { status: 500 });
 	}

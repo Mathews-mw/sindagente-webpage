@@ -1,5 +1,7 @@
+import { Metadata } from 'next';
+
 import { Section } from '@/components/section';
-import { Clock3, Mail, MapPin, Phone } from 'lucide-react';
+import { PageTitle } from '@/components/page-title';
 import {
 	Card,
 	CardContent,
@@ -7,7 +9,12 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { PageTitle } from '@/components/page-title';
+
+import { Clock3, Mail, MapPin, Phone } from 'lucide-react';
+
+export const metadata: Metadata = {
+	title: 'Contato',
+};
 
 export default function ContatoPage() {
 	return (
