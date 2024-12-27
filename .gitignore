@@ -83,7 +83,6 @@ next-env.d.ts
 
 notes.md
 
-
 # Ignorar todos os arquivos dentro de tmp/uploads e suas subpastas
 /public/uploads/**
 # Fazer exceções para pastas dentro de public/uploads

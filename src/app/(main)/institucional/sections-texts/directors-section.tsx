@@ -35,7 +35,7 @@ export function DirectorsSection() {
 					alt="diretoria"
 					width={6148}
 					height={4099}
-					className="h-[200px] rounded object-cover lg:h-[400px]"
+					className="h-[200px] rounded object-fill lg:h-[400px]"
 				/>
 			</div>
 		</Section>

@@ -15,7 +15,7 @@ export function ValuesSection() {
 						</div>
 					</div>
 
-					<ul className="list-disc space-y-2">
+					<ul className="list-disc space-y-2 px-4 lg:px-0">
 						<li>
 							<p className="text-justify">
 								<strong>MISSÃO</strong> - Representar e defender os interesses gerais de toda a
@@ -40,11 +40,11 @@ export function ValuesSection() {
 				</div>
 
 				<Image
-					src="https://img.freepik.com/fotos-gratis/grupo-de-amigos-a-passar-tempo-juntos_53876-48.jpg?t=st=1731854249~exp=1731857849~hmac=8f820b52b5e6b507d7ac022a38b1e9ea53baf8b7c53d27058bfa24d8e1f8db7b&w=1380"
+					src="/values.jpg"
 					alt="about-image"
 					width={6000}
 					height={4000}
-					className="h-[200px] rounded object-cover lg:h-[400px]"
+					className="h-[200px] rounded object-fill lg:h-[400px]"
 				/>
 			</div>
 		</Section>

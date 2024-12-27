@@ -43,26 +43,25 @@ export function DisaffiliateCard() {
 	}
 
 	return (
-		<Card className="max-w-[520px] bg-muted">
+		<Card className="h-min w-full max-w-[520px] bg-muted">
 			<CardHeader>
 				<CardTitle>Desfiliação</CardTitle>
-				<CardDescription>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam a nemo cum impedit
-					distinctio error illum, tempore sequi repellat, ullam molestiae sapiente, nisi nihil
-					quisquam qui magnam? Odio, ullam.
-				</CardDescription>
 			</CardHeader>
-			<CardContent>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta quisquam
-					modi inventore quasi quod libero veritatis expedita non eos, neque a, nam nulla cumque
-					sit! Debitis, eaque? Pariatur, earum!
+			<CardContent className="space-y-2">
+				<p className="text-justify">
+					Apesar de não ser obrigatória, a sindicalização é um direito do trabalhador e um
+					verdadeiro exercício de cidadania.
+				</p>
+				<p className="text-justify">
+					Os sindicatos são os legítimos representantes dos trabalhadores junto aos empregadores
+					e sindicalizar-se significa participar de ações que valorizam o ofício de cada
+					trabalhador.
 				</p>
 
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta quisquam
-					modi inventore quasi quod libero veritatis expedita non eos, neque a, nam nulla cumque
-					sit! Debitis, eaque? Pariatur, earum!
+				<p className="text-justify text-sm font-bold text-muted-foreground">
+					É assegurado o direito de desfiliar-se do sindicato, desde que encaminhe por escrito
+					uma solicitação a Diretoria Executiva, pedindo sua desfiliação, desde que esteja
+					quites com suas obrigações regidas pelo Estatuto deste sindicato.
 				</p>
 			</CardContent>
 			<CardFooter>

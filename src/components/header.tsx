@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 import { NavLink } from './nav-link/nav-link';
 import { DrawerNavigation } from './drawer-navigation/drawer-navigation';
+import Link from 'next/link';
 
 export function Header() {
 	return (
@@ -28,13 +29,15 @@ export function Header() {
 
 				<div className="container mx-auto flex justify-between px-5 py-4 lg:px-10">
 					<div className="flex items-center">
-						<Image
-							src="/logo.jpg"
-							alt="Logo"
-							width={50}
-							height={50}
-							className="hidden lg:block"
-						/>
+						<Link href="/">
+							<Image
+								src="/logo.jpg"
+								alt="Logo"
+								width={50}
+								height={50}
+								className="hidden lg:block"
+							/>
+						</Link>
 
 						<div className="lg:hidden">
 							<DrawerNavigation />

@@ -6,7 +6,7 @@ import { NewsCard } from './news-card';
 import { listingPostsCursorMode } from '@/app/api/@requests/posts/listing-posts-cursor-mode';
 
 export function LatestNewsSection() {
-	const { data, isFetching } = useQuery({
+	const { data } = useQuery({
 		queryKey: ['posts', 'latest'],
 		queryFn: async () =>
 			await listingPostsCursorMode({

@@ -7,7 +7,7 @@ export interface SectionProps extends ComponentProps<'div'> {
 
 export function Section({ children, className, ...props }: SectionProps) {
 	return (
-		<div className={twMerge(['container mx-auto px-10', className])} {...props}>
+		<div className={twMerge(['container mx-auto px-4 lg:px-10', className])} {...props}>
 			{children}
 		</div>
 	);

@@ -55,11 +55,11 @@ export default function HomePage() {
 						</div>
 
 						<Image
-							src="https://img.freepik.com/fotos-gratis/frente-de-cafe-com-uma-maquete-de-sinal_53876-63392.jpg?t=st=1731784257~exp=1731787857~hmac=32346d9afc781930fe44a14e11cb4d562204d9f0e768c89e2753971dc0be810b&w=1060"
+							src="/faixada-sindagente.jpg"
 							alt="about-image"
 							width={600}
 							height={900}
-							className="hidden h-[300px] flex-grow object-cover lg:block"
+							className="hidden h-[300px] flex-grow object-fill lg:block"
 						/>
 					</div>
 				</div>
@@ -82,20 +82,13 @@ export default function HomePage() {
 				<Section className="my-10">
 					<div className="space-y-4">
 						<div className="flex flex-col items-center gap-2">
-							<h2 className="border-b-2 border-primary text-xl font-bold text-primary brightness-50">
-								Lorem ipsum dolor sit amet
+							<h2 className="border-b-2 border-primary text-center text-xl font-bold text-primary brightness-50">
+								&quot;Quem não luta pelos seus direitos não é digno deles.&quot;
 							</h2>
 						</div>
 
 						<div>
-							<p className="text-center font-semibold text-zinc-700">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ut architecto
-								cum explicabo optio, minima blanditiis impedit veniam nobis repellat non aperiam
-								quo assumenda totam nisi fugiat officiis illum saepe! Lorem ipsum dolor sit amet
-								consectetur adipisicing elit. Iure dignissimos quae eos optio suscipit tempora
-								vero voluptas, excepturi quas laudantium culpa nobis expedita corporis. Nulla
-								dignissimos natus perferendis iusto quas.
-							</p>
+							<p className="text-center font-semibold text-zinc-700">Rui Barbosa</p>
 						</div>
 					</div>
 				</Section>

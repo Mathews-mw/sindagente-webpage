@@ -54,6 +54,40 @@ export function Footer() {
 							</div>
 						</div>
 
+						<div className="flex items-center gap-2">
+							<span className="text-sm font-semibold">Parceiros: </span>
+							<div className="flex gap-2">
+								<a
+									href="#"
+									target="_blank"
+									className="flex items-center justify-center rounded-full border"
+								>
+									<Image
+										src="/ugt_afiliado.jpg"
+										alt="UGT"
+										width={64}
+										height={64}
+										title="UGT"
+										className="h-[32px] w-[32px] rounded-full"
+									/>
+								</a>
+								<a
+									href="#"
+									target="_blank"
+									className="flex items-center justify-center rounded-full border"
+								>
+									<Image
+										src="/fnaras_afiliado.jpg"
+										alt="UGT"
+										width={64}
+										height={64}
+										title="FNARAS"
+										className="h-[32px] w-[32px] rounded-full"
+									/>
+								</a>
+							</div>
+						</div>
+
 						<div>
 							<span className="text-sm font-semibold">Contato: </span>
 							<span className="text-sm">(92) 98506-9363</span>

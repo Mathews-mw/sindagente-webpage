@@ -7,7 +7,7 @@ export interface SectionProps extends ComponentProps<'div'> {
 
 export function PageMargin({ children, className, ...props }: SectionProps) {
 	return (
-		<div className={twMerge(['px-4', className])} {...props}>
+		<div className={twMerge(['lg:px-4', className])} {...props}>
 			{children}
 		</div>
 	);

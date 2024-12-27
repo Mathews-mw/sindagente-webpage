@@ -43,50 +43,29 @@ export function AffiliateCard() {
 	}
 
 	return (
-		<Card className="max-w-[520px] bg-primary/10 shadow-sm shadow-primary/50">
+		<Card className="w-full max-w-[520px] bg-primary/10 shadow-sm shadow-primary/50">
 			<CardHeader>
 				<CardTitle>Filiação</CardTitle>
-				<CardDescription>
-					Filiar-se a um sindicato oferece diversas vantagens para o trabalhador, principalmente
-					no que diz respeito à proteção de seus direitos e melhorias nas condições de trabalho.
-				</CardDescription>
 			</CardHeader>
 
 			<CardContent className="space-y-2">
-				<h4 className="text-lg font-semibold">Por que filiar-se?</h4>
-
-				<p>
-					Estar filiado ao sindicato é uma forma de assegurar que seus interesses serão
-					representados de forma coletiva e com mais força frente aos empregadores, além de
-					promover solidariedade entre os trabalhadores da mesma categoria. É uma forma prática
-					de proteger-se em um mercado de trabalho competitivo e nem sempre justo.
+				<p className="text-justify">
+					A categoria profissional Agentes de Combate às Endemias com vinculo Estadual ou
+					municipal e todos Servidores efetivos, ativos, aposentados e pensionistas da Fundação
+					de Vigilância em Saúde do Amazonas, tem o direito de filiar-se ao SINDAGENTE-AM.
 				</p>
 
-				<h4 className="text-lg font-semibold">Algumas vantagens de se filiar a um sindicato</h4>
+				<p className="text-justify">
+					Para ingressar ao quadro de filiados, é preciso encaminhar para a Diretoria Executiva
+					do SINDAGENTE-AM um Formulário de Filiação devidamente preenchida e assinada,
+					juntamente com cópia de documento de identificação oficial, comprovante de residência
+					e contracheque.
+				</p>
 
-				<ol className="ml-6 list-decimal space-y-1">
-					<li>
-						<strong className="font-semibold">Representação nas negociações coletivas</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Defesa de direitos</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Orientação e assistência jurídica</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Apoio em caso de conflitos</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Benefícios extras</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Fortalecimento da classe trabalhadora</strong>
-					</li>
-					<li>
-						<strong className="font-semibold">Acesso à informação</strong>
-					</li>
-				</ol>
+				<p className="text-justify text-sm font-bold text-muted-foreground">
+					Somente terá pleno gozo de seus direitos sindicais, os filiados que estiverem quites
+					com as suas obrigações pecuniárias.
+				</p>
 			</CardContent>
 			<CardFooter>
 				<div className="flex w-full justify-center">
