@@ -5,8 +5,36 @@ import Image from 'next/image';
 import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
 import { FileText } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
+import { toast } from 'sonner';
+import { errorToasterHandler } from '@/utils/error-toaster-handler';
 
 export function StatuteSection() {
+	const { data: attachmentsResponse, isFetching } = useQuery({
+		queryKey: ['attachments', 'statute'],
+		queryFn: async () =>
+			getAttachments({
+				category: 'ESTATUTO',
+			}),
+	});
+
+	async function handleDownloadFile() {
+		try {
+			if (attachmentsResponse && attachmentsResponse.attachments) {
+				const affiliateFile = attachmentsResponse.attachments[0];
+
+				// const { url } = await downloadAttachments(affiliateFile.name);
+				window.open(affiliateFile.url, '_blank');
+			} else {
+				return toast.error('Nenhum arquivo encontrado');
+			}
+		} catch (error) {
+			console.log('Erro ao tentar fazer o download do arquivo: ', error);
+			errorToasterHandler(error, 'Erro ao tentar fazer o download do arquivo');
+		}
+	}
+
 	return (
 		<Section className="lg:my-10">
 			<div className="flex flex-col-reverse gap-8 lg:grid lg:grid-cols-2 lg:gap-0 lg:space-x-8">
@@ -35,10 +63,16 @@ export function StatuteSection() {
 							</p>
 						</div>
 
-						<Button variant="outline">
-							<FileText />
-							Ver estatuto
-						</Button>
+						<div className="flex w-full justify-center">
+							<Button
+								variant="outline"
+								onClick={handleDownloadFile}
+								disabled={isFetching || attachmentsResponse?.attachments.length === 0}
+							>
+								<FileText />
+								Ver estatuto
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>
