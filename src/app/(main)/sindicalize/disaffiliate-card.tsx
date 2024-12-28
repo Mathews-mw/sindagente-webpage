@@ -72,7 +72,7 @@ export function DisaffiliateCard() {
 						disabled={isFetching || attachmentsResponse?.attachments.length === 0}
 					>
 						<FileX />
-						Formulário de desfiliação
+						Formulário de Desfiliação
 					</Button>
 				</div>
 			</CardFooter>

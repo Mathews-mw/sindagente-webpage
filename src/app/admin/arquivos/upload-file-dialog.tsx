@@ -44,6 +44,7 @@ const uploadFormSchema = z.object({
 			'DIVERSOS',
 			'FILIACAO',
 			'DESFILIACAO',
+			'ESTATUTO',
 			'LEGISLACAO_FEDERAL',
 			'LEGISLACAO_ESTADUAL',
 			'LEGISLACAO_MUNICIPAL',
@@ -156,6 +157,7 @@ export function UploadFileDialog({ isOpen, onOpen }: IUploadAttachmentDialogProp
 											<SelectItem value="DIVERSOS">Diversos</SelectItem>
 											<SelectItem value="FILIACAO">Filiação</SelectItem>
 											<SelectItem value="DESFILIACAO">Desfiliação</SelectItem>
+											<SelectItem value="ESTATUTO">Estatuto</SelectItem>
 											<SelectItem value="LEGISLACAO_ESTADUAL">Estadual</SelectItem>
 											<SelectItem value="LEGISLACAO_FEDERAL">Federal</SelectItem>
 											<SelectItem value="LEGISLACAO_MUNICIPAL">Municipal</SelectItem>

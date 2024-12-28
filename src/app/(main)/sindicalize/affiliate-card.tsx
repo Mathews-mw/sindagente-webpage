@@ -74,7 +74,7 @@ export function AffiliateCard() {
 						disabled={isFetching || attachmentsResponse?.attachments.length === 0}
 					>
 						<FileCheck />
-						Formulário de Afiliação
+						Formulário de Filiação
 					</Button>
 				</div>
 			</CardFooter>

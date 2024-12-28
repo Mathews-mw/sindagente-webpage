@@ -13,20 +13,17 @@ export function DirectorsSection() {
 
 					<div className="space-y-4">
 						<p className="text-justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias eaque,
-							numquam provident repellendus hic doloremque quibusdam excepturi at quas? Et nulla
-							vitae quisquam accusamus libero? Repellat animi labore blanditiis? Lorem ipsum
-							dolor sit amet, consectetur adipisicing elit. Ipsa nihil sint alias non
-							reiciendis! Laborum, saepe delectus ratione sed omnis a odio, eligendi quasi,
-							magni recusandae quaerat neque voluptatum molestias.
+							O SINDAGENTE-AM será administrado por uma Diretoria Executiva, eleita em
+							Assembleia Geral para um mandato de 4 (quatro) anos, composta por:
 						</p>
 
-						<p className="text-justify">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
-							reprehenderit voluptatibus, porro quasi sunt ipsum officiis rerum repudiandae
-							voluptate maxime ex? Nisi velit sequi hic reprehenderit culpa numquam aspernatur
-							possimus!
-						</p>
+						<ul className="ml-6 list-decimal space-y-2">
+							<li>Presidente</li>
+							<li>Vice-Presidente</li>
+							<li>Diretoria de Administração, Finança e Patrimônio, 2 (dois) membros</li>
+							<li>Diretoria Assuntos Sociais e Esporte, 2 (dois) membros</li>
+							<li>Diretoria de Filiação e Assuntos do Interior, 2 (dois) membros.</li>
+						</ul>
 					</div>
 				</div>
 
