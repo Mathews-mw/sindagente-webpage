@@ -36,11 +36,7 @@ export default function ContentPage() {
 			<PageTitle title="Comunicação e Notícias" />
 
 			<PageMargin className="space-y-8">
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum fugiat fugit placeat
-					rem alias maiores voluptate. Quasi optio veritatis maxime commodi voluptate neque,
-					nisi delectus qui iure itaque necessitatibus odio.
-				</p>
+				<p>Aqui você fica sabendo sobre as nossas últimas postagens e comunicados.</p>
 
 				<PageSubTitle title="Comunicados" />
 

@@ -10,8 +10,9 @@ export default async function SessionLayout({ children }: { children: ReactNode 
 					<span className="text-xl font-semibold text-primary-foreground">Sindagente - AM</span>
 				</div>
 
-				<footer className="text-sm text-muted">
-					Painel Administrador &copy; Sindagente - {new Date().getFullYear()}
+				<footer className="flex flex-col text-sm text-muted">
+					<span>Painel Administrador &copy; Sindagente - {new Date().getFullYear()}</span>
+					<span>v. {process.env.APP_VERSION}</span>
 				</footer>
 			</div>
 

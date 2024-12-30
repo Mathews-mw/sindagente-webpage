@@ -24,9 +24,10 @@ export default function ContentPage() {
 			<PageMargin className="space-y-8">
 				<div>
 					<p>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem tenetur,
-						omnis odit cum quae hic delectus veritatis? Inventore ut incidunt, qui, iure
-						adipisci ullam earum ab, ducimus minima natus sint.
+						Aqui você encontra os arquivos de transparência do sindicato. Navegue entre as abas
+						para visualizar os diferentes arquivos. Para visualizar ou baixar um arquivo, basta
+						clicar no botão do lado direito da tabela. Caso queira ver mais detalhes sobre o
+						arquivo a ser baixado, clique no botão do lado esquerdo da tabela.
 					</p>
 				</div>
 

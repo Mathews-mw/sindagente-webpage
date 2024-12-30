@@ -17,7 +17,7 @@ export default function HomePage() {
 			<div className="relative flex">
 				<div className="absolute z-10 h-[300px] w-full bg-gradient-to-r from-primary opacity-30 lg:h-[600px]" />
 				<Image
-					src="https://img.freepik.com/fotos-gratis/padaria-de-bolo-caseiro-em-uma-maquete-de-placa-redonda_53876-65258.jpg?t=st=1731779994~exp=1731783594~hmac=12f985017c3116eacde6ba809564867dbf1f09bd9caaace71cd155a38f2a779c&w=1380"
+					src="/home-cover-image.jpg"
 					alt="hero-image"
 					width={5000}
 					height={3348}

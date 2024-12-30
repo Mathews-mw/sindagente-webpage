@@ -53,9 +53,10 @@ export default function ContentPage() {
 			<PageMargin className="space-y-8">
 				<div>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ad nemo explicabo
-						illum recusandae, ipsa rerum autem similique nobis in soluta non. Delectus
-						blanditiis nesciunt nisi nihil quas nemo eum?
+						Na tabela abaixo, você pode visualizar os arquivos de legislação. Navegue entre as
+						abas para visualizar os diferentes arquivos. Para visualizar ou baixar um arquivo,
+						basta clicar no botão do lado direito da tabela. Caso queira ver mais detalhes sobre
+						o arquivo a ser baixado, clique no botão do lado esquerdo da tabela.
 					</p>
 				</div>
 
