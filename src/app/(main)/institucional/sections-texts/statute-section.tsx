@@ -39,7 +39,7 @@ export function StatuteSection() {
 		<Section className="lg:my-10">
 			<div className="flex flex-col-reverse gap-8 lg:grid lg:grid-cols-2 lg:gap-0 lg:space-x-8">
 				<Image
-					src="https://img.freepik.com/fotos-gratis/martelo-de-juizes-no-livro-e-mesa-de-madeira-lei-e-justica-conceito-fundo_1150-9094.jpg?t=st=1731854369~exp=1731857969~hmac=35fbe9210f2e5e1ba76be6052c9562804e1518296980f6fee424697870a6cbf1&w=1380"
+					src="/sindagente-estatuto.jpg"
 					alt="about-image"
 					width={5000}
 					height={3000}
@@ -52,14 +52,15 @@ export function StatuteSection() {
 					</div>
 
 					<div className="flex h-full flex-col justify-between space-y-2">
-						<div>
+						<div className="space-y-1">
 							<p className="text-justify">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestias eaque,
-								numquam provident repellendus hic doloremque quibusdam excepturi at quas? Et
-								nulla vitae quisquam accusamus libero? Repellat animi labore blanditiis? Lorem
-								ipsum dolor sit amet, consectetur adipisicing elit. Ipsa nihil sint alias non
-								reiciendis! Laborum, saepe delectus ratione sed omnis a odio, eligendi quasi,
-								magni recusandae quaerat neque voluptatum molestias.
+								O estatuto sindical é o documento que regulamenta o funcionamento de uma
+								entidade sindical, sendo considerado a lei maior do sindicato. Ele é importante
+								porque: Assegura a democracia no sindicato, Trata das questões jurídicas mais
+								relevantes, Deve ser cumprido integralmente.
+							</p>
+							<p className="text-justify">
+								O estatuto sindical é essencial para a construção de entidades sindicais fortes.
 							</p>
 						</div>
 

@@ -58,7 +58,7 @@ export function Footer() {
 							<span className="text-sm font-semibold">Parceiros: </span>
 							<div className="flex gap-2">
 								<a
-									href="#"
+									href="https://ugt.org.br"
 									target="_blank"
 									className="flex items-center justify-center rounded-full border"
 								>
@@ -72,7 +72,7 @@ export function Footer() {
 									/>
 								</a>
 								<a
-									href="#"
+									href="https://www.instagram.com/fnaras.1"
 									target="_blank"
 									className="flex items-center justify-center rounded-full border"
 								>
