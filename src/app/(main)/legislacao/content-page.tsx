@@ -13,6 +13,7 @@ import { MunicipalTabContent } from './mucipal-tab-content';
 import { DiversosTabContent } from './diversos-tab-content';
 import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { AssembleiaTabContent } from './assembleia-tab-content';
 
 export default function ContentPage() {
 	const [tabSelection, setTabSelection] = useState<FileCategory>(
@@ -46,6 +47,10 @@ export default function ContentPage() {
 		? attachments.attachments.filter((attachment) => attachment.category === 'DIVERSOS')
 		: [];
 
+	const assembleiaAttachments = attachments
+		? attachments.attachments.filter((attachment) => attachment.category === 'ASSEMBLEIA_GERAL')
+		: [];
+
 	return (
 		<Section className="my-8 space-y-8">
 			<PageTitle title="Legislações" />
@@ -70,6 +75,7 @@ export default function ContentPage() {
 							<TabsTrigger value={FileCategory.LEGISLACAO_ESTADUAL}>Estadual</TabsTrigger>
 							<TabsTrigger value={FileCategory.LEGISLACAO_MUNICIPAL}>Municipal</TabsTrigger>
 							<TabsTrigger value={FileCategory.DIVERSOS}>Doc. Diversos</TabsTrigger>
+							<TabsTrigger value={FileCategory.ASSEMBLEIA_GERAL}>Assembleia Geral</TabsTrigger>
 						</TabsList>
 						<TabsContent value={FileCategory.LEGISLACAO_FEDERAL}>
 							<FederalTabContent attachments={federalAttachments} isFetching={isFetching} />
@@ -82,6 +88,12 @@ export default function ContentPage() {
 						</TabsContent>
 						<TabsContent value={FileCategory.DIVERSOS}>
 							<DiversosTabContent attachments={diversosAttachments} isFetching={isFetching} />
+						</TabsContent>
+						<TabsContent value={FileCategory.ASSEMBLEIA_GERAL}>
+							<AssembleiaTabContent
+								attachments={assembleiaAttachments}
+								isFetching={isFetching}
+							/>
 						</TabsContent>
 					</Tabs>
 				</div>

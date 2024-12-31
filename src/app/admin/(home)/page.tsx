@@ -1,14 +1,21 @@
 import { Section } from '@/components/section';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AdminPage() {
 	return (
 		<Section>
-			<div className="flex items-center gap-2">
-				<span className="flex h-6 w-1.5 bg-primary" />
-				<h1 className="text-2xl font-semibold text-primary brightness-50">
-					Painel Administrativo
-				</h1>
+			<div className="flex w-full items-center justify-between">
+				<div className="flex items-center gap-2">
+					<span className="flex h-6 w-1.5 bg-primary" />
+					<h1 className="text-2xl font-semibold text-primary brightness-50">
+						Painel Administrativo
+					</h1>
+				</div>
+
+				<Link href="/" className="text-primary underline hover:brightness-75">
+					Voltar para o site
+				</Link>
 			</div>
 
 			<div className="mt-8">

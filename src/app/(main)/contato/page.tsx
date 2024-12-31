@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/card';
 
 import { Clock3, Mail, MapPin, Phone } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: 'Contato',
@@ -26,16 +27,18 @@ export default function ContatoPage() {
 			<div className="relative mt-8 h-[260px] w-full bg-[url('https://images.unsplash.com/photo-1587560699334-bea93391dcef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center lg:h-[360px]">
 				<div className="absolute z-10 h-[260px] w-full bg-primary opacity-20 lg:h-[360px]" />
 
-				<div className="z-50 flex h-full w-full flex-col justify-evenly lg:flex lg:flex-row lg:items-center">
-					<div className="flex flex-col items-center gap-4 text-white">
+				<div className="flex h-full w-full flex-col justify-evenly lg:flex lg:flex-row lg:items-center">
+					<div className="z-10 flex flex-col items-center gap-4 text-white">
 						<div className="flex items-center gap-2">
 							<Phone />
 							<strong className="text-xl">Telefone</strong>
 						</div>
-						<span className="font-semibold">(92) 98506-9363</span>
+						<Link href="https://wa.me/559285069363" target="_blank">
+							<span className="font-semibold">(92) 98506-9363</span>
+						</Link>
 					</div>
 
-					<div className="flex flex-col items-center gap-4 text-white">
+					<div className="z-10 flex flex-col items-center gap-4 text-white">
 						<div className="flex items-center gap-2">
 							<Mail />
 							<strong className="text-xl">E-mail</strong>
@@ -43,7 +46,7 @@ export default function ContatoPage() {
 						<span className="font-semibold">sindagente.amz@gmail.com</span>
 					</div>
 
-					<div className="flex flex-col items-center gap-4 text-white">
+					<div className="z-10 flex flex-col items-center gap-4 text-white">
 						<div className="flex items-center gap-2">
 							<MapPin />
 							<strong className="text-xl">Localização</strong>

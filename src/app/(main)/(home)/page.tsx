@@ -17,7 +17,7 @@ export default function HomePage() {
 			<div className="relative flex">
 				<div className="absolute z-10 h-[300px] w-full bg-gradient-to-r from-primary opacity-30 lg:h-[600px]" />
 				<Image
-					src="/home-cover-image.jpg"
+					src="/sindagente-home-cover-image.jpg"
 					alt="hero-image"
 					width={5000}
 					height={3348}

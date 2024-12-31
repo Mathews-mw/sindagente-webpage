@@ -17,7 +17,9 @@ export function Header() {
 					<div className="flex gap-4">
 						<div className="flex items-center gap-2">
 							<Phone className="h-4 w-4" />
-							<small>(92) 98506-9363</small>
+							<Link href="https://wa.me/559285069363" target="_blank">
+								<small>(92) 98506-9363</small>
+							</Link>
 						</div>
 
 						<div className="flex items-center gap-2">

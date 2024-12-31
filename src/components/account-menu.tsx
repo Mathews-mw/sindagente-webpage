@@ -51,6 +51,7 @@ export function AccountMenu() {
 							<>
 								<span>{data?.user?.name}</span>
 								<span>{data?.user?.email}</span>
+								<span className="text-xs">{data?.user?.role}</span>
 							</>
 						)}
 					</DropdownMenuLabel>

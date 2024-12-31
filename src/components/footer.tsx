@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Separator } from './ui/separator';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
 	return (
@@ -90,7 +91,9 @@ export function Footer() {
 
 						<div>
 							<span className="text-sm font-semibold">Contato: </span>
-							<span className="text-sm">(92) 98506-9363</span>
+							<Link href="https://wa.me/559285069363" target="_blank">
+								<span className="text-sm">(92) 98506-9363</span>
+							</Link>
 						</div>
 
 						<div>

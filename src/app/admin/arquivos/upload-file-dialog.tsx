@@ -40,6 +40,7 @@ const uploadFormSchema = z.object({
 		.min(1, { message: 'Campo obrigatório' }),
 	category: z.enum(
 		[
+			'ASSEMBLEIA_GERAL',
 			'GENERIC',
 			'DIVERSOS',
 			'FILIACAO',
@@ -153,13 +154,14 @@ export function UploadFileDialog({ isOpen, onOpen }: IUploadAttachmentDialogProp
 											<SelectValue placeholder="Selecione uma categoria do arquivo" />
 										</SelectTrigger>
 										<SelectContent>
-											<SelectItem value="GENERIC">Genérico</SelectItem>
-											<SelectItem value="DIVERSOS">Diversos</SelectItem>
+											<SelectItem value="ASSEMBLEIA_GERAL">Assembleia Geral</SelectItem>
 											<SelectItem value="FILIACAO">Filiação</SelectItem>
 											<SelectItem value="DESFILIACAO">Desfiliação</SelectItem>
-											<SelectItem value="ESTATUTO">Estatuto</SelectItem>
+											<SelectItem value="DIVERSOS">Diversos</SelectItem>
 											<SelectItem value="LEGISLACAO_ESTADUAL">Estadual</SelectItem>
+											<SelectItem value="ESTATUTO">Estatuto</SelectItem>
 											<SelectItem value="LEGISLACAO_FEDERAL">Federal</SelectItem>
+											<SelectItem value="GENERIC">Genérico</SelectItem>
 											<SelectItem value="LEGISLACAO_MUNICIPAL">Municipal</SelectItem>
 											<SelectItem value="PRESTACAO_CONTAS">Prestação de contas</SelectItem>
 										</SelectContent>
