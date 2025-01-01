@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Projeto Sindagente Web
 
-## Getting Started
+Este projeto foi desenvolvido com o objetivo de servir como a página web do sindicato **Sindagente AM**. Ele utiliza tecnologias modernas como Next.js, TypeScript, Tailwind CSS e Prisma para oferecer uma solução robusta e escalável.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**: Framework React para aplicações web otimizadas.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **Tailwind CSS**: Framework de estilização utilitária.
+- **Prisma**: ORM para gerenciamento de banco de dados.
+- **PNPM**: Gerenciador de pacotes utilizado no projeto.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Funcionalidades Principais
 
-## Learn More
+- [**Descrever funcionalidade 1**]
+- [**Descrever funcionalidade 2**]
+- [**Adicionar outras funcionalidades importantes**]
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como Rodar o Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Requisitos
 
-## Deploy on Vercel
+- Node.js v16 ou superior
+- PNPM instalado globalmente
+- Banco de dados configurado (veja o arquivo `.env.example` para detalhes)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Passos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone o repositório:
+   ```bash
+   git clone [URL_DO_REPOSITORIO]
+   cd sindagente-web
+   ```
+
+2. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+
+3. Configure as variáveis de ambiente:
+   - Crie um arquivo `.env` baseado no `.env.example`.
+   - Atualize as configurações do banco de dados e outros parâmetros necessários.
+
+4. Execute as migrações do banco de dados:
+   ```bash
+   pnpm prisma migrate dev
+   ```
+
+5. Inicie o servidor de desenvolvimento:
+   ```bash
+   pnpm dev
+   ```
+
+6. Abra [http://localhost:3000](http://localhost:3000) no navegador para ver a aplicação.
+
+---
+
+## Estrutura de Pastas (Opcional)
+
+- `pages/`: Páginas do Next.js.
+- `components/`: Componentes reutilizáveis.
+- `prisma/`: Configuração e esquemas do banco de dados.
+- `styles/`: Arquivos de estilização global e configuração do Tailwind CSS.
+- `public/`: Arquivos estáticos.
+
+---
+
+## Configuração do Banco de Dados
+
+O projeto utiliza o Prisma como ORM e suporta diferentes bancos de dados. Certifique-se de configurar a string de conexão no arquivo `.env` corretamente.
+
+---
+
+## Licença
+
+Este é um projeto privado desenvolvido para o Sindicato Sindagente-AM. Todo o código-fonte e conteúdo deste repositório estão protegidos e não devem ser distribuídos ou utilizados sem permissão expressa. Todos os direitos reservados.
+
