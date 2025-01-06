@@ -1,10 +1,9 @@
 import Image from 'next/image';
 
 import { Mail, Phone } from 'lucide-react';
-import { Separator } from './ui/separator';
 import { AccountMenu } from './account-menu';
-import { AdminNavLink } from './admin-nav-link/admin-nav-link';
 import { ThemeModeToggle } from './theme-mode-toggle';
+import { AdminNavLink } from './admin-nav-link/admin-nav-link';
 
 export function AdminHeader() {
 	return (
@@ -18,12 +17,12 @@ export function AdminHeader() {
 					<div className="flex gap-4">
 						<div className="flex items-center gap-2">
 							<Phone className="h-4 w-4" />
-							<small>(92) 9100-8272 / (92) 4101-8636</small>
+							<small>(92) 98506-9363</small>
 						</div>
 
 						<div className="flex items-center gap-2">
 							<Mail className="h-4 w-4" />
-							<small>contato@sindagenteam.org</small>
+							<small>sindagente.amz@gmail.com</small>
 						</div>
 					</div>
 				</div>

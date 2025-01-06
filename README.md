@@ -61,16 +61,6 @@ Este projeto foi desenvolvido com o objetivo de servir como a página web do sin
 
 ---
 
-## Estrutura de Pastas (Opcional)
-
-- `pages/`: Páginas do Next.js.
-- `components/`: Componentes reutilizáveis.
-- `prisma/`: Configuração e esquemas do banco de dados.
-- `styles/`: Arquivos de estilização global e configuração do Tailwind CSS.
-- `public/`: Arquivos estáticos.
-
----
-
 ## Configuração do Banco de Dados
 
 O projeto utiliza o Prisma como ORM e suporta diferentes bancos de dados. Certifique-se de configurar a string de conexão no arquivo `.env` corretamente.
