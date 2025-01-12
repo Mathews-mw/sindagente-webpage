@@ -18,6 +18,8 @@ import { MakeAvailableAnnouncementDialog } from './make-available-announcement-d
 import { DeleteAnnouncementDialog } from './delete-announcement-dialog';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { AnnouncementDetailsDialog } from './announcement-details-dialog';
+import { PinAnnouncementDialog } from './pin-announcement-dialog';
+import { UnpinAnnouncementDialog } from './unpin-announcement-dialog';
 
 interface IAnnouncementTableRowProps {
 	announcement: Announcement;
@@ -25,6 +27,8 @@ interface IAnnouncementTableRowProps {
 
 export function AnnouncementTableRow({ announcement }: IAnnouncementTableRowProps) {
 	const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+	const [isOpenPinAnnouncementModal, setIsOpenPinAnnouncementModal] = useState(false);
+	const [isOpenUnpinAnnouncementModal, setIsOpenUnpinAnnouncementModal] = useState(false);
 	const [isOpenDeleteAnnouncementModal, setIsOpenDeleteAnnouncementModal] = useState(false);
 	const [isOpenAvailableAnnouncementModal, setIsOpenAvailableAnnouncementModal] =
 		useState(false);
@@ -55,6 +59,15 @@ export function AnnouncementTableRow({ announcement }: IAnnouncementTableRowProp
 			<TableCell className="text-center">
 				<div className="flex w-full items-center justify-center">
 					{announcement.available ? (
+						<Check className="h-5 w-5 text-emerald-500" />
+					) : (
+						<X className="h-5 w-5 text-rose-500" />
+					)}
+				</div>
+			</TableCell>
+			<TableCell className="text-center">
+				<div className="flex w-full items-center justify-center">
+					{announcement.pin ? (
 						<Check className="h-5 w-5 text-emerald-500" />
 					) : (
 						<X className="h-5 w-5 text-rose-500" />
@@ -93,6 +106,21 @@ export function AnnouncementTableRow({ announcement }: IAnnouncementTableRowProp
 						onOpen={() =>
 							setIsOpenUnavailableAnnouncementModal(!isOpenUnavailableAnnouncementModal)
 						}
+					/>
+				)}
+			</TableCell>
+			<TableCell className="text-right">
+				{announcement.pin ? (
+					<UnpinAnnouncementDialog
+						announcement={announcement}
+						isOpen={isOpenUnpinAnnouncementModal}
+						onOpen={() => setIsOpenUnpinAnnouncementModal(!isOpenUnpinAnnouncementModal)}
+					/>
+				) : (
+					<PinAnnouncementDialog
+						announcement={announcement}
+						isOpen={isOpenPinAnnouncementModal}
+						onOpen={() => setIsOpenPinAnnouncementModal(!isOpenPinAnnouncementModal)}
 					/>
 				)}
 			</TableCell>

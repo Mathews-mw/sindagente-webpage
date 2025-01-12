@@ -33,7 +33,7 @@ export default function ManagerPost() {
 		queryKey: ['posts', 'cursor-mode', 'manager'],
 		queryFn: async ({ pageParam }) =>
 			await listingPostsCursorMode({
-				limit: 4,
+				limit: 8,
 				cursor: pageParam,
 			}),
 		initialPageParam: undefined,
@@ -43,11 +43,11 @@ export default function ManagerPost() {
 
 	const postsGroped = useMemo(() => {
 		if (postsResponse) {
-			const serviceNotesFlatArray = postsResponse.pages
+			const postsFlatArray = postsResponse.pages
 				.map((item) => item.posts)
 				.flat(Infinity) as Post[];
 
-			return serviceNotesFlatArray;
+			return postsFlatArray;
 		}
 
 		return [];
@@ -66,6 +66,8 @@ export default function ManagerPost() {
 							<TableHead className="">TÍTULO</TableHead>
 							<TableHead className="w-[140px] text-center">POSTADO EM</TableHead>
 							<TableHead className="w-[140px] text-center">DISPONÍVEL</TableHead>
+							<TableHead className="w-[140px] text-center">FIXADO</TableHead>
+							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>

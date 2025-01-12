@@ -13,6 +13,7 @@ const bodySchema = z.object({
 	title: z.optional(z.string()),
 	content: z.optional(z.string()),
 	availability: z.optional(z.coerce.boolean()),
+	pin: z.optional(z.coerce.boolean()),
 });
 
 export async function PUT(request: NextRequest, { params }: IParamsProps) {
@@ -42,7 +43,7 @@ export async function PUT(request: NextRequest, { params }: IParamsProps) {
 		);
 	}
 
-	const { title, content, availability } = dataParse.data;
+	const { title, content, availability, pin } = dataParse.data;
 
 	try {
 		const announcement = await prisma.announcement.findUnique({
@@ -63,6 +64,7 @@ export async function PUT(request: NextRequest, { params }: IParamsProps) {
 		announcement.title = title ?? announcement.title;
 		announcement.content = content ?? announcement.content;
 		announcement.available = availability ?? announcement.available;
+		announcement.pin = pin ?? announcement.pin;
 		announcement.updatedAt = new Date();
 
 		await prisma.announcement.update({

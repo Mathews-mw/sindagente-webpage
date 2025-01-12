@@ -48,6 +48,10 @@ import {
 } from '@/components/ui/tooltip';
 
 import {
+	AlignCenter,
+	AlignJustify,
+	AlignLeft,
+	AlignRight,
 	Bold,
 	Heading1,
 	Heading2,
@@ -96,7 +100,6 @@ export default function PostsPage() {
 			ResizableImage,
 			TextStyle,
 			Highlight,
-			TextAlign,
 			ListItem,
 			OrderedList,
 			BulletList,
@@ -105,6 +108,9 @@ export default function PostsPage() {
 			Paragraph,
 			Heading.configure({
 				levels: [1, 2, 3],
+			}),
+			TextAlign.configure({
+				types: ['heading', 'paragraph'],
 			}),
 			Youtube.configure({
 				controls: false,
@@ -405,6 +411,92 @@ export default function PostsPage() {
 								</TooltipTrigger>
 								<TooltipContent>
 									<p>Texto de Cabeçalho com fonte média</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+
+						<Separator orientation="vertical" className="h-6 w-px" />
+
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="ghost"
+										size="icon"
+										type="button"
+										aria-label="Toggle Heading 3"
+										onClick={() => editor?.chain().focus().setTextAlign('left').run()}
+										data-isactive={editor?.isActive({ textAlign: 'left' })}
+										className="data-[isactive=true]:bg-zinc-200"
+									>
+										<AlignLeft className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									<p>Alinhar à esquerda</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="ghost"
+										size="icon"
+										type="button"
+										aria-label="Toggle Heading 3"
+										onClick={() => editor?.chain().focus().setTextAlign('center').run()}
+										data-isactive={editor?.isActive({ textAlign: 'center' })}
+										className="data-[isactive=true]:bg-zinc-200"
+									>
+										<AlignCenter className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									<p>Centralizar texto</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="ghost"
+										size="icon"
+										type="button"
+										aria-label="Toggle Heading 3"
+										onClick={() => editor?.chain().focus().setTextAlign('right').run()}
+										data-isactive={editor?.isActive({ textAlign: 'right' })}
+										className="data-[isactive=true]:bg-zinc-200"
+									>
+										<AlignRight className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									<p>Alinhar à direita</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Button
+										variant="ghost"
+										size="icon"
+										type="button"
+										aria-label="Toggle Heading 3"
+										onClick={() => editor?.chain().focus().setTextAlign('justify').run()}
+										data-isactive={editor?.isActive({ textAlign: 'justify' })}
+										className="data-[isactive=true]:bg-zinc-200"
+									>
+										<AlignJustify className="h-4 w-4" />
+									</Button>
+								</TooltipTrigger>
+								<TooltipContent>
+									<p>Justificar texto</p>
 								</TooltipContent>
 							</Tooltip>
 						</TooltipProvider>

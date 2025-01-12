@@ -8,6 +8,7 @@ interface IRequest {
 	imagePreview?: string;
 	content?: string;
 	isAvailable?: boolean;
+	pin?: boolean;
 }
 
 export interface IResponse {
@@ -22,6 +23,7 @@ export async function updatePost({
 	content,
 	imagePreview,
 	isAvailable,
+	pin,
 }: IRequest): Promise<IResponse> {
 	const { data } = await api.put<IResponse>(`/posts/${slug}/update`, {
 		title,
@@ -29,6 +31,7 @@ export async function updatePost({
 		content,
 		url_image_preview: imagePreview,
 		availability: isAvailable,
+		pin,
 	});
 
 	return data;

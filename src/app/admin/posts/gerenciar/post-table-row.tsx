@@ -16,12 +16,16 @@ import {
 
 import { Check, PencilLine, Search, SquareArrowOutUpRight, X } from 'lucide-react';
 import Link from 'next/link';
+import { PinPostDialog } from './pin-post-dialog';
+import { UnpinPostDialog } from './unpin-post.dialog';
 
 interface IPostTableRowProps {
 	post: Post;
 }
 
 export function PostTableRow({ post }: IPostTableRowProps) {
+	const [isOpenPinPostModal, setIsOpenPinPostModal] = useState(false);
+	const [isOpenUnpinPostModal, setIsOpenUnpinPostModal] = useState(false);
 	const [isOpenDeletePostModal, setIsOpenDeletePostModal] = useState(false);
 	const [isOpenAvailablePostModal, setIsOpenAvailablePostModal] = useState(false);
 	const [isOpenUnavailablePostModal, setIsOpenUnavailablePostModal] = useState(false);
@@ -60,6 +64,15 @@ export function PostTableRow({ post }: IPostTableRowProps) {
 					)}
 				</div>
 			</TableCell>
+			<TableCell className="text-center">
+				<div className="flex w-full items-center justify-center">
+					{post.pin ? (
+						<Check className="h-5 w-5 text-emerald-500" />
+					) : (
+						<X className="h-5 w-5 text-rose-500" />
+					)}
+				</div>
+			</TableCell>
 			<TableCell className="text-right">
 				<TooltipProvider>
 					<Tooltip>
@@ -88,6 +101,21 @@ export function PostTableRow({ post }: IPostTableRowProps) {
 						post={post}
 						isOpen={isOpenUnavailablePostModal}
 						onOpen={() => setIsOpenUnavailablePostModal(!isOpenUnavailablePostModal)}
+					/>
+				)}
+			</TableCell>
+			<TableCell className="text-right">
+				{post.pin ? (
+					<UnpinPostDialog
+						post={post}
+						isOpen={isOpenUnpinPostModal}
+						onOpen={() => setIsOpenUnpinPostModal(!isOpenUnpinPostModal)}
+					/>
+				) : (
+					<PinPostDialog
+						post={post}
+						isOpen={isOpenPinPostModal}
+						onOpen={() => setIsOpenPinPostModal(!isOpenPinPostModal)}
 					/>
 				)}
 			</TableCell>

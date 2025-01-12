@@ -15,6 +15,7 @@ const bodySchema = z.object({
 	content: z.optional(z.string()),
 	url_image_preview: z.optional(z.string()),
 	availability: z.optional(z.coerce.boolean()),
+	pin: z.optional(z.coerce.boolean()),
 });
 
 export async function PUT(request: NextRequest, { params }: IParamsProps) {
@@ -44,7 +45,7 @@ export async function PUT(request: NextRequest, { params }: IParamsProps) {
 		);
 	}
 
-	const { title, preview, content, url_image_preview, availability } = dataParse.data;
+	const { title, preview, content, url_image_preview, availability, pin } = dataParse.data;
 
 	try {
 		const post = await prisma.post.findUnique({
@@ -68,6 +69,7 @@ export async function PUT(request: NextRequest, { params }: IParamsProps) {
 		post.imagePreview = url_image_preview ?? post.imagePreview;
 		post.available = availability ?? post.available;
 		post.updatedAt = new Date();
+		post.pin = pin ?? post.pin;
 
 		await prisma.post.update({
 			data: post,

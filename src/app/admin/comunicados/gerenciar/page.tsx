@@ -34,7 +34,7 @@ export default function ManagerPost() {
 		queryKey: ['announcements', 'cursor-mode', 'manager'],
 		queryFn: async ({ pageParam }) =>
 			await listingAnnouncementsCursorMode({
-				limit: 4,
+				limit: 8,
 				cursor: pageParam,
 			}),
 		initialPageParam: undefined,
@@ -44,11 +44,11 @@ export default function ManagerPost() {
 
 	const announcementsGroped = useMemo(() => {
 		if (announcementsResponse) {
-			const serviceNotesFlatArray = announcementsResponse.pages
+			const announcementsFlatArray = announcementsResponse.pages
 				.map((item) => item.announcements)
 				.flat(Infinity) as Announcement[];
 
-			return serviceNotesFlatArray;
+			return announcementsFlatArray;
 		}
 
 		return [];
@@ -56,7 +56,7 @@ export default function ManagerPost() {
 
 	return (
 		<Section className="space-y-8">
-			<PageTitle title="Gerenciar posts" />
+			<PageTitle title="Gerenciar Comunicados" />
 
 			<div className="rounded-md border">
 				<Table>
@@ -67,6 +67,8 @@ export default function ManagerPost() {
 							<TableHead className="">TÍTULO</TableHead>
 							<TableHead className="w-[140px] text-center">POSTADO EM</TableHead>
 							<TableHead className="w-[140px] text-center">DISPONÍVEL</TableHead>
+							<TableHead className="w-[140px] text-center">FIXADO</TableHead>
+							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>
 							<TableHead className="w-[64px] text-right"></TableHead>

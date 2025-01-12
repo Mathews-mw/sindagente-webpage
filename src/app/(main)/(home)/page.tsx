@@ -6,6 +6,9 @@ import { Section } from '@/components/section';
 import { Button } from '@/components/ui/button';
 import { PageSubTitle } from '@/components/page-subtitle';
 import { LatestNewsSection } from './latest-news-section';
+import { PinnedNewsSection } from './pinned-news-section';
+import { Pin } from 'lucide-react';
+import { PinnedAnnouncementsSection } from './pinned-announcements-section';
 
 export const metadata: Metadata = {
 	title: 'Home',
@@ -103,6 +106,28 @@ export default function HomePage() {
 					<Button asChild>
 						<Link href="/comunicacao">Mais notícias</Link>
 					</Button>
+				</div>
+			</Section>
+
+			<Section className="my-8 space-y-8">
+				<PageSubTitle title="Notícias e Comunicados fixados" />
+
+				<div>
+					<div className="flex items-center gap-2">
+						<Pin className="h-5 w-5 text-primary" />
+						<h4 className="text-lg font-semibold text-primary">Notícias fixadas</h4>
+					</div>
+
+					<PinnedNewsSection />
+				</div>
+
+				<div className="space-y-4">
+					<div className="flex items-center gap-2">
+						<Pin className="h-5 w-5 text-primary" />
+						<h4 className="text-lg font-semibold text-primary">Comunicados fixados</h4>
+					</div>
+
+					<PinnedAnnouncementsSection />
 				</div>
 			</Section>
 		</div>

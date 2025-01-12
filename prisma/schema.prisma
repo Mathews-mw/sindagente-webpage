@@ -80,6 +80,7 @@ model Post {
   imagePreview String?   @map("image_preview")
   content      String
   available    Boolean   @default(true)
+  pin          Boolean?  @default(false)
   createdAt    DateTime  @default(now()) @map("created_at")
   updatedAt    DateTime? @map("updated_at")
 
@@ -92,6 +93,7 @@ model Announcement {
   title     String
   content   String
   available Boolean   @default(true)
+  pin       Boolean?  @default(false)
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @map("updated_at")
 

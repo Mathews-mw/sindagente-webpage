@@ -46,13 +46,17 @@ export default function ContatoPage() {
 						<span className="font-semibold">sindagente.amz@gmail.com</span>
 					</div>
 
-					<div className="z-10 flex flex-col items-center gap-4 text-white">
+					<Link
+						href="https://maps.app.goo.gl/gWtLNg7wWgaZYrfh8"
+						target="_blank"
+						className="z-10 flex flex-col items-center gap-4 text-white"
+					>
 						<div className="flex items-center gap-2">
 							<MapPin />
 							<strong className="text-xl">Localização</strong>
 						</div>
 						<span className="font-semibold">Manaus, AM</span>
-					</div>
+					</Link>
 				</div>
 			</div>
 

@@ -6,6 +6,7 @@ interface IRequest {
 	title?: string;
 	content?: string;
 	isAvailable?: boolean;
+	pin?: boolean;
 }
 
 export interface IResponse {
@@ -18,11 +19,13 @@ export async function updateAnnouncement({
 	title,
 	content,
 	isAvailable,
+	pin,
 }: IRequest): Promise<IResponse> {
 	const { data } = await api.put<IResponse>(`/announcements/${slug}/update`, {
 		title,
 		content,
 		availability: isAvailable,
+		pin,
 	});
 
 	return data;

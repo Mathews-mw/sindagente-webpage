@@ -5,7 +5,7 @@ import { Section } from '@/components/section';
 import { PageTitle } from '@/components/page-title';
 import { PageMargin } from '@/components/page-margin';
 import { PageSubTitle } from '@/components/page-subtitle';
-import { AnnouncementList } from './components/announcement/announcement-list';
+import { AnnouncementList } from '../../../components/announcement/announcement-list';
 import { InfiniteData, QueryKey, useInfiniteQuery } from '@tanstack/react-query';
 import {
 	listingPostsCursorMode,

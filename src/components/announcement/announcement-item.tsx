@@ -10,7 +10,7 @@ interface IAnnouncementItemProps {
 export function AnnouncementItem({ announcement }: IAnnouncementItemProps) {
 	return (
 		<AccordionItem value={announcement.id}>
-			<AccordionTrigger className="text-xl text-primary brightness-75 hover:brightness-50">
+			<AccordionTrigger className="text-lg text-primary brightness-75 hover:brightness-50">
 				{announcement.title}
 			</AccordionTrigger>
 			<AccordionContent>
