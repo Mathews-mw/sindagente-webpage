@@ -28,7 +28,7 @@ export function DirectorsSection() {
 				</div>
 
 				<Image
-					src="/sindagente-diretoria-executiva.jpg"
+					src="/sindagente-diretoria-executiva-2.jpg"
 					alt="diretoria"
 					width={6148}
 					height={4099}
