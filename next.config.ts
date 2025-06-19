@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
 		ignoreBuildErrors: true,
 	},
 	reactStrictMode: false,
+	compress: true,
+	poweredByHeader: true,
 	images: {
 		remotePatterns: [
 			{
@@ -27,6 +29,9 @@ const nextConfig: NextConfig = {
 				hostname: 'plus.unsplash.com',
 			},
 		],
+	},
+	experimental: {
+		optimizeCss: true,
 	},
 };
 
