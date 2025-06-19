@@ -12,8 +12,6 @@ const nextConfig: NextConfig = {
 		ignoreBuildErrors: true,
 	},
 	reactStrictMode: false,
-	compress: true,
-	poweredByHeader: true,
 	images: {
 		remotePatterns: [
 			{
