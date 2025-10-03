@@ -40,7 +40,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
 		const fileUrl = new URL(attachment.url);
 
 		const command = new GetObjectCommand({
-			Bucket: env.AWS_BUCKET_NAME,
+			Bucket: env.S3_BUCKET_NAME,
 			Key: fileUrl.pathname.replace('/', ''),
 		});
 

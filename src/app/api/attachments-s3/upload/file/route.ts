@@ -56,7 +56,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
 		const fileName = `${Date.now().toString()}_${file.name}`;
 
 		const command = new PutObjectCommand({
-			Bucket: env.AWS_BUCKET_NAME,
+			Bucket: env.S3_BUCKET_NAME,
 			Key: `${awsBucketsConfig.BUCKETS_OBJECTS.files}/${fileName}`,
 			Body: buffer,
 			ContentType: file.type,
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
 			data: {
 				title,
 				name: fileName,
-				url: `${env.AWS_BUCKET_BASE_URL}/${awsBucketsConfig.BUCKETS_OBJECTS.files}/${fileName}`,
+				url: `${env.S3_BUCKET_BASE_URL}/${awsBucketsConfig.BUCKETS_OBJECTS.files}/${fileName}`,
 				type: 'ARQUIVO',
 				category,
 				description,

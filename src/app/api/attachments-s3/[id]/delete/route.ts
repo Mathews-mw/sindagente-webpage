@@ -47,7 +47,7 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 			: `${awsBucketsConfig.BUCKETS_OBJECTS.images}/${attachment.name}`;
 
 		const command = new DeleteObjectCommand({
-			Bucket: env.AWS_BUCKET_NAME,
+			Bucket: env.S3_BUCKET_NAME,
 			Key: s3ObjectKey,
 		});
 
