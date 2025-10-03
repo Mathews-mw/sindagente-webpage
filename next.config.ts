@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
 				protocol: 'https',
 				hostname: 'plus.unsplash.com',
 			},
+			{
+				protocol: 'https',
+				hostname: 'sindagente-site.s3.us-east-2.amazonaws.com',
+			}
 		],
 	},
 };

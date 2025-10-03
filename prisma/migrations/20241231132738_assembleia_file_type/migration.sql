@@ -1,2 +1,0 @@
--- AlterEnum
-ALTER TYPE "FileCategory" ADD VALUE 'ASSEMBLEIA_GERAL';

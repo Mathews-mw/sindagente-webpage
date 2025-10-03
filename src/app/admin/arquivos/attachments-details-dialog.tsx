@@ -1,5 +1,6 @@
 import { Attachment } from '@prisma/client';
 import { DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import Image from 'next/image';
 
 interface IAttachmentDetailsDialogProps {
 	attachment: Attachment;
@@ -45,6 +46,8 @@ export function AttachmentDetailsDialog({ attachment }: IAttachmentDetailsDialog
 				{attachment.description && (
 					<p className="text-justify">Descrição: {attachment.description}</p>
 				)}
+
+				{attachment.type === 'IMAGEM' && (<Image src={attachment.url} alt={attachment.title} width={500} height={500} />)}
 			</div>
 		</DialogContent>
 	);

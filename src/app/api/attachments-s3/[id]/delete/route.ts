@@ -25,7 +25,6 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 
 	const id = z.string().parse(await params.id);
 
-	console.log('file id: ', id);
 
 	try {
 		const attachment = await prisma.attachment.findUnique({
@@ -43,9 +42,13 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 			);
 		}
 
+		const s3ObjectKey = attachment.type === 'ARQUIVO'
+			? `${awsBucketsConfig.BUCKETS_OBJECTS.files}/${attachment.name}`
+			: `${awsBucketsConfig.BUCKETS_OBJECTS.images}/${attachment.name}`;
+
 		const command = new DeleteObjectCommand({
 			Bucket: env.AWS_BUCKET_NAME,
-			Key: `${awsBucketsConfig.OBJECT_FOLDER_PATH}/${attachment.fileName}`,
+			Key: s3ObjectKey,
 		});
 
 		await s3Client.send(command);

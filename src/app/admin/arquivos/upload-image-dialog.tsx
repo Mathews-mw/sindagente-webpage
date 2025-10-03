@@ -67,7 +67,7 @@ export function UploadImageDialog({ isOpen, onOpen }: IUploadAttachmentDialogPro
 		}
 
 		try {
-			await api.post('/attachments/upload/image', formData, config);
+			await api.post('/attachments-s3/upload/image', formData, config);
 
 			await queryClient.invalidateQueries({ queryKey: ['attachments'] });
 

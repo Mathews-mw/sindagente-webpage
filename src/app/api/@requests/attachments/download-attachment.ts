@@ -5,7 +5,7 @@ export interface IResponse {
 }
 
 export async function downloadAttachments(fileName: string): Promise<IResponse> {
-	const { data } = await api.get<IResponse>('/attachments/download', {
+	const { data } = await api.get<IResponse>('/attachments-s3/download', {
 		params: {
 			fileName,
 		},

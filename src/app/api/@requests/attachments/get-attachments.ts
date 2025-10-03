@@ -11,7 +11,7 @@ export interface IResponse {
 }
 
 export async function getAttachments({ category }: IRequest): Promise<IResponse> {
-	const { data } = await api.get<IResponse>('/attachments', {
+	const { data } = await api.get<IResponse>('/attachments-s3', {
 		params: {
 			category,
 		},

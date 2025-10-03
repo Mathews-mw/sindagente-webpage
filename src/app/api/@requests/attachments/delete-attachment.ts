@@ -5,7 +5,7 @@ export interface IResponse {
 }
 
 export async function deleteAttachment(fileId: string): Promise<IResponse> {
-	const { data } = await api.delete<IResponse>(`/attachments/${fileId}/delete`);
+	const { data } = await api.delete<IResponse>(`/attachments-s3/${fileId}/delete`);
 
 	return data;
 }

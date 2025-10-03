@@ -51,7 +51,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
 		}
 
 		const buffer = Buffer.from(await file.arrayBuffer());
-		const fileName = `${file.name}_${Date.now().toString()}`;
+		const fileName = `${Date.now().toString()}_${file.name}`;
 
 		const command = new PutObjectCommand({
 			Bucket: env.AWS_BUCKET_NAME,
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest, res: NextResponse) {
 		const result = await s3Client.send(command);
 
 		if (result.$metadata.httpStatusCode !== 200) {
-			return Response.json({ error: 'Erro ao tentar fazer upload na cloud' }, { status: 400 });
+			return Response.json({ error: 'Erro ao tentar fazer upload na AWS S3' }, { status: 400 });
 		}
 
 		const attachment = await prisma.attachment.create({

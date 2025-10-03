@@ -93,7 +93,7 @@ export function UploadFileDialog({ isOpen, onOpen }: IUploadAttachmentDialogProp
 		}
 
 		try {
-			await api.post('/attachments/upload/file', formData, config);
+			await api.post('/attachments-s3/upload/file', formData, config);
 
 			await queryClient.invalidateQueries({ queryKey: ['attachments'] });
 
