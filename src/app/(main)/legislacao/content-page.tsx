@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { FileCategory } from '@prisma/client';
 import { Section } from '@/components/section';
 import { useQuery } from '@tanstack/react-query';
+
+import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
 
 import { PageTitle } from '@/components/page-title';
 import { PageMargin } from '@/components/page-margin';
@@ -11,13 +12,12 @@ import { FederalTabContent } from './federal-tab-content';
 import { EstadualTabContent } from './estadual-tab-content';
 import { MunicipalTabContent } from './mucipal-tab-content';
 import { DiversosTabContent } from './diversos-tab-content';
-import { getAttachments } from '@/app/api/@requests/attachments/get-attachments';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AssembleiaTabContent } from './assembleia-tab-content';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function ContentPage() {
-	const [tabSelection, setTabSelection] = useState<FileCategory>(
-		FileCategory.LEGISLACAO_FEDERAL
+	const [tabSelection, setTabSelection] = useState<IFileCategory>(
+		"LEGISLACAO_FEDERAL"
 	);
 
 	const { data: attachments, isFetching } = useQuery({
@@ -27,20 +27,20 @@ export default function ContentPage() {
 
 	const federalAttachments = attachments
 		? attachments.attachments.filter(
-				(attachment) => attachment.category === 'LEGISLACAO_FEDERAL'
-			)
+			(attachment) => attachment.category === 'LEGISLACAO_FEDERAL'
+		)
 		: [];
 
 	const estadualAttachments = attachments
 		? attachments.attachments.filter(
-				(attachment) => attachment.category === 'LEGISLACAO_ESTADUAL'
-			)
+			(attachment) => attachment.category === 'LEGISLACAO_ESTADUAL'
+		)
 		: [];
 
 	const municipalAttachments = attachments
 		? attachments.attachments.filter(
-				(attachment) => attachment.category === 'LEGISLACAO_MUNICIPAL'
-			)
+			(attachment) => attachment.category === 'LEGISLACAO_MUNICIPAL'
+		)
 		: [];
 
 	const diversosAttachments = attachments
@@ -67,29 +67,29 @@ export default function ContentPage() {
 
 				<div>
 					<Tabs
-						onValueChange={(value) => setTabSelection(value as FileCategory)}
+						onValueChange={(value) => setTabSelection(value as IFileCategory)}
 						value={tabSelection}
 					>
 						<TabsList>
-							<TabsTrigger value={FileCategory.LEGISLACAO_FEDERAL}>Federal</TabsTrigger>
-							<TabsTrigger value={FileCategory.LEGISLACAO_ESTADUAL}>Estadual</TabsTrigger>
-							<TabsTrigger value={FileCategory.LEGISLACAO_MUNICIPAL}>Municipal</TabsTrigger>
-							<TabsTrigger value={FileCategory.DIVERSOS}>Doc. Diversos</TabsTrigger>
-							<TabsTrigger value={FileCategory.ASSEMBLEIA_GERAL}>Assembleia Geral</TabsTrigger>
+							<TabsTrigger value={"LEGISLACAO_FEDERAL"}>Federal</TabsTrigger>
+							<TabsTrigger value={"LEGISLACAO_ESTADUAL"}>Estadual</TabsTrigger>
+							<TabsTrigger value={"LEGISLACAO_MUNICIPAL"}>Municipal</TabsTrigger>
+							<TabsTrigger value={"DIVERSOS"}>Doc. Diversos</TabsTrigger>
+							<TabsTrigger value={"ASSEMBLEIA_GERAL"}>Assembleia Geral</TabsTrigger>
 						</TabsList>
-						<TabsContent value={FileCategory.LEGISLACAO_FEDERAL}>
+						<TabsContent value={"LEGISLACAO_FEDERAL"}>
 							<FederalTabContent attachments={federalAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileCategory.LEGISLACAO_ESTADUAL}>
+						<TabsContent value={"LEGISLACAO_ESTADUAL"}>
 							<EstadualTabContent attachments={estadualAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileCategory.LEGISLACAO_MUNICIPAL}>
+						<TabsContent value={"LEGISLACAO_MUNICIPAL"}>
 							<MunicipalTabContent attachments={municipalAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileCategory.DIVERSOS}>
+						<TabsContent value={"DIVERSOS"}>
 							<DiversosTabContent attachments={diversosAttachments} isFetching={isFetching} />
 						</TabsContent>
-						<TabsContent value={FileCategory.ASSEMBLEIA_GERAL}>
+						<TabsContent value={"ASSEMBLEIA_GERAL"}>
 							<AssembleiaTabContent
 								attachments={assembleiaAttachments}
 								isFetching={isFetching}
