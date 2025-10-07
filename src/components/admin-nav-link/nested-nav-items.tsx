@@ -16,7 +16,6 @@ import { usePathname } from 'next/navigation';
 export function NestedNavItems() {
 	const pathname = usePathname();
 
-	console.log('pathname: ', pathname.includes('/posts'));
 	let isActive = false;
 
 	if (pathname.includes('/posts') || pathname.includes('/comunicados')) {

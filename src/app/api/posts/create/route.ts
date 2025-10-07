@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { prisma } from '@/lib/prisma';
+import { removeAccentsAndNormalize } from '@/utils/remove-accents-and-normalize';
 
 const bodySchema = z.object({
 	title: z.string(),
@@ -38,7 +39,8 @@ export async function POST(request: NextRequest) {
 	const { title, preview, content, url_image_preview } = dataParse.data;
 
 	try {
-		const postSlug = `${title.trim().toLowerCase().replaceAll(' ', '-')}-${Date.now()}`;
+		const normalizeTitle = removeAccentsAndNormalize(title);
+		const postSlug = `${normalizeTitle}-${Date.now()}`;
 
 		const newPost = await prisma.post.create({
 			data: {

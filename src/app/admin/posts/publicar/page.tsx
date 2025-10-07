@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEditor, EditorContent } from '@tiptap/react';
 
@@ -93,6 +93,7 @@ export default function PostsPage() {
 	const [isResizeImageModalOpen, setIsResizeImageModalOpen] = useState(false);
 
 	const navigator = useRouter();
+	const queryClient = useQueryClient()
 
 	const editor = useEditor({
 		extensions: [
@@ -201,9 +202,12 @@ export default function PostsPage() {
 				content,
 			});
 
+			await queryClient.invalidateQueries({ queryKey: ['posts', 'cursor-mode', 'manager'] })
+
 			reset();
+
 			toast.success('Post criado com sucesso');
-			navigator.push('/admin');
+			navigator.push('/admin/posts/gerenciar');
 		} catch (error) {
 			console.log('Erro ao tentar salvar post: ', error);
 			errorToasterHandler(error);

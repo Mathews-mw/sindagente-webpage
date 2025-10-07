@@ -212,6 +212,7 @@ export default function EditPostForm({ post }: IEditPostFormProps) {
 			});
 
 			await queryClient.invalidateQueries({ queryKey: ['post', post.slug] });
+			await queryClient.invalidateQueries({ queryKey: ['posts', 'cursor-mode', 'manager'] })
 
 			reset();
 			toast.success('Post atualizado com sucesso');
