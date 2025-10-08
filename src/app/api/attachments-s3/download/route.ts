@@ -7,7 +7,13 @@ import { env } from '@/env';
 import { prisma } from '@/lib/prisma';
 import { s3Client } from '@/lib/aws-s3/aws-s3-connect';
 
+console.log("ENV DEBUG:", {
+  	S3_REGION: process.env.S3_REGION,
+  	NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+});
+
 export async function GET(request: NextRequest, response: NextResponse) {
+	
 	if (request.method !== 'GET') {
 		return Response.json(
 			{

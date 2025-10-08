@@ -18,7 +18,7 @@ export async function DELETE(request: NextRequest, { params }: IParamsProps) {
 		);
 	}
 
-	const slug = await params.slug;
+	const { slug } = await params
 
 	try {
 		const post = await prisma.post.findUnique({

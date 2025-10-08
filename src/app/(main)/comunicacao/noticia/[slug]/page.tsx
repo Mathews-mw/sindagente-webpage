@@ -27,7 +27,8 @@ async function getPost(slug: string): Promise<Post> {
 }
 
 export async function generateMetadata({ params }: IPostPageProps): Promise<Metadata> {
-	const product = await getPost(params.slug);
+	const { slug } = await params;
+	const product = await getPost(slug);
 
 	return {
 		title: product.title,
@@ -35,7 +36,8 @@ export async function generateMetadata({ params }: IPostPageProps): Promise<Meta
 }
 
 export default async function PostPage({ params }: IPostPageProps) {
-	const post = await getPost(params.slug);
+	const { slug } = await params;
+	const post = await getPost(slug);
 	const content = post.content;
 
 	const postedAt = dayjs(post.createdAt).format('DD[ de ]MMMM[ de ]YYYY');

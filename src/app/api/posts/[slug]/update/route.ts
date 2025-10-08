@@ -28,7 +28,7 @@ export async function PUT(request: NextRequest, { params }: IParamsProps) {
 		);
 	}
 
-	const slug = await params.slug;
+	const { slug } = await params
 
 	const data = await request.json();
 

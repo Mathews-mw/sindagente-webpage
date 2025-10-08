@@ -18,7 +18,7 @@ export async function GET(request: NextRequest, { params }: IParamsProps) {
 		);
 	}
 
-	const slug = await params.slug;
+	const { slug } = await params
 
 	console.log('slug on API: ', slug);
 
