@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 import type { NextConfig } from 'next';
 import { version } from './package.json';
+
+dotenv.config({ path: ".env.production" });
 
 const nextConfig: NextConfig = {
 	env: {
